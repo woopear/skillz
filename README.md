@@ -1,4 +1,4 @@
-# skillz  
+# Skillz  
 
 > application gestion de compétences  
 
