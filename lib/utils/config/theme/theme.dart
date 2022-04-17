@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:skillz/utils/config/theme/colors.dart';
+import 'package:skillz/utils/config/theme/elevated_button_theme.dart';
+import 'package:skillz/utils/config/theme/text_button_theme.dart';
 import 'package:woo_theme_mode/woo_theme_mode.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,6 +20,8 @@ final themeClaire = WooTheme.modeClair(
   t3: GoogleFonts.openSans(color: Colors.black),
   t4: GoogleFonts.openSans(color: Colors.black),
   tsmall: GoogleFonts.openSans(color: Colors.black),
+  elevatedButtonTheme: elevatedButtonClaire,
+  textButtonStyle: textButtonStyleClaire,
 );
 
 /// mode dark
@@ -35,4 +39,6 @@ final themeDark = WooTheme.modeDark(
   t3: GoogleFonts.openSans(color: Colors.white),
   t4: GoogleFonts.openSans(color: Colors.white),
   tsmall: GoogleFonts.openSans(color: Colors.white),
+  elevatedButtonTheme: elevatedButtonDark,
+  textButtonStyle: textButtonStyleDark,
 );
