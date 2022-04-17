@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "829309993815",
+    "project_id": "skillz-51b91",
+    "storage_bucket": "skillz-51b91.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829309993815:android:9f950f9fce53908dfa3412",
+        "android_client_info": {
+          "package_name": "com.example.skillz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829309993815-ua8b0ea6hterd4ssspod5q0a863o6i8h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhR9l-wCHZXchMGXeG7riaBbICPU4POiM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829309993815-ua8b0ea6hterd4ssspod5q0a863o6i8h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
