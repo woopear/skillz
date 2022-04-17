@@ -4,8 +4,11 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:skillz/utils/config/theme/colors.dart';
 
 class WaitingLoad extends ConsumerWidget {
-  const WaitingLoad({
+  double size;
+  
+  WaitingLoad({
     Key? key,
+    this.size = 100,
   }) : super(key: key);
 
   @override
@@ -13,7 +16,7 @@ class WaitingLoad extends ConsumerWidget {
     return Center(
       child: SpinKitCircle(
         color: ColorCustom().orange,
-        size: 100,
+        size: size,
       ),
     );
   }

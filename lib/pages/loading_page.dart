@@ -11,7 +11,7 @@ class LoadingPage extends ConsumerWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: ColorCustom().blueLight,
-        body: const WaitingLoad(),
+        body: WaitingLoad(),
       ),
     );
   }

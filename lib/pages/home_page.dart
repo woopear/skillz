@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skillz/models/setting/state/setting_provider.dart';
-import 'package:skillz/pages/build_page.dart';
 import 'package:skillz/pages/error_page.dart';
 import 'package:skillz/pages/loading_page.dart';
-import 'package:skillz/utils/const/globals.dart';
 import 'package:skillz/utils/const/text_error.dart';
 
 class HomePage extends ConsumerStatefulWidget {
@@ -26,7 +24,7 @@ class _HomePageState extends ConsumerState<HomePage> {
   Widget build(BuildContext context) {
     return ref.watch(settingsStream).when(
           data: (settings) {
-            /// build
+            /* build
             if (settings[0].build) {
               return BuildPage(textInfo: Globals.textInfoPageBuild,);
             }
@@ -34,7 +32,7 @@ class _HomePageState extends ConsumerState<HomePage> {
             /// maintenance
             if (settings[0].wait) {
               return BuildPage(textInfo: Globals.textInfoPageMaintain,);
-            }
+            }*/
 
             /// page home
             return SafeArea(
