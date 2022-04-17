@@ -4,6 +4,7 @@ import 'package:skillz/models/setting/state/setting_provider.dart';
 import 'package:skillz/pages/error_page.dart';
 import 'package:skillz/pages/loading_page.dart';
 import 'package:skillz/utils/const/text_error.dart';
+import 'package:skillz/widgets_shared/index.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -22,6 +23,9 @@ class _HomePageState extends ConsumerState<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final _width = MediaQuery.of(context).size.width;
+    final _height = MediaQuery.of(context).size.height;
+
     return ref.watch(settingsStream).when(
           data: (settings) {
             /* build
@@ -37,10 +41,50 @@ class _HomePageState extends ConsumerState<HomePage> {
             /// page home
             return SafeArea(
               child: Scaffold(
-                body: Center(
-                  child: SingleChildScrollView(
-                    child: Container(
-                      child: const Text('home'),
+                body: SingleChildScrollView(
+                  child: SizedBox(
+                    width: _width,
+                    height: _height,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Skillz',
+                          style: const TextStyle().copyWith(
+                            fontSize: 96.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+
+                        /// test btn elevated
+                        btnElevated(
+                          context: context,
+                          onPressed: () {},
+                          text: 'Se connecter',
+                          fontSize: 26.0,
+                          paddingBtn: const EdgeInsets.symmetric(
+                            vertical: 24.0,
+                            horizontal: 24.0,
+                          ),
+                        ),
+                        btnElevated(
+                          context: context,
+                          onPressed: () {},
+                          text: 'Se connecter',
+                        ),
+
+                        /// test btn text
+                        BtnText(
+                          onPressed: () {},
+                          text: 'Se connecter',
+                        ),
+                        BtnText(
+                          onPressed: () {},
+                          text: 'Se connecter',
+                          fontSize: 24.0,
+                        ),
+                      ],
                     ),
                   ),
                 ),
