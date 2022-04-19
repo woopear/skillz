@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:skillz/models/setting/state/setting_provider.dart';
+import 'package:skillz/src/models/setting/state/setting_provider.dart';
 import 'package:skillz/pages/error_page.dart';
 import 'package:skillz/pages/loading_page.dart';
-import 'package:skillz/utils/const/text_error.dart';
-import 'package:skillz/widgets_shared/index.dart';
+import 'package:skillz/src/utils/const/text_error.dart';
+import 'package:skillz/src/components/index.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -75,14 +75,21 @@ class _HomePageState extends ConsumerState<HomePage> {
                         ),
 
                         /// test btn text
-                        BtnText(
+                        btnText(
                           onPressed: () {},
                           text: 'Se connecter',
                         ),
-                        BtnText(
+                        btnText(
                           onPressed: () {},
                           text: 'Se connecter',
                           fontSize: 24.0,
+                        ),
+
+                        /// test btn text icon
+                        btnTextIcon(
+                          onPressed: () {},
+                          icon: const Icon(Icons.arrow_circle_right_outlined),
+                          text: "Se connecter",
                         ),
                       ],
                     ),
