@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 class WalletCompetenceSchema{
   String? id;
   String idCompetence;

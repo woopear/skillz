@@ -1,12 +1,10 @@
-import 'dart:ffi';
-
 class CompanieSchema{
   String? id;
   String denomination;
   String? filliale;
   String siret;
   String codeNaf;
-  Bool online;
+  bool online;
   
   CompanieSchema({
     this.id,
@@ -22,7 +20,7 @@ class CompanieSchema{
     String filliale = data['filliale'] ?? "";
     String siret = data['siret'];
     String codeNaf = data['codeNaf'];
-    Bool online = data['online'];
+    bool online = data['online'];
 
     return CompanieSchema(
       id: documentId,
