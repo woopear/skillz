@@ -1,0 +1,1 @@
+export './role/schema/role_schema.dart';
