@@ -1,30 +1,29 @@
-import 'dart:ffi';
 
 class WorkstationSchema{
   String? id;
   String? name;
   bool online;
-  List idCompetence;
+  List idCompetences;
   String? detail;
   
   WorkstationSchema({
     this.id,
     this.name,
     required this.online,
-    required this.idCompetence,
+    required this.idCompetences,
     this.detail,
   });
 
   factory WorkstationSchema.formMap(Map<String, dynamic> data, documentId) {
     String name = data['name'] ?? '';
     bool online = data['online'];
-    List idCompetence = data['idCompetence'];
+    List idCompetences = data['idCompetences'];
     String detail = data['detail'] ?? '';
 
     return WorkstationSchema(
       id: documentId,
       name: name, 
-      idCompetence: idCompetence, 
+      idCompetences: idCompetences, 
       detail: detail, 
       online: online
     );
@@ -34,7 +33,7 @@ class WorkstationSchema{
     return {
       'name': name ?? '',
       'online': online,
-      'idCompetence': idCompetence,
+      'idCompetence': idCompetences,
       'detail': detail ?? '',
     };
   }
