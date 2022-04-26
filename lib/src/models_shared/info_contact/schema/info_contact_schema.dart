@@ -5,7 +5,7 @@ class InfoContactSchema {
   String address;
   String codePost;
   String city;
-  String idContact;
+  String idProfil;
 
   InfoContactSchema({
     this.id,
@@ -14,7 +14,7 @@ class InfoContactSchema {
     required this.address,
     required this.codePost,
     required this.city,
-    required this.idContact,
+    required this.idProfil,
   });
 
   factory InfoContactSchema.formMap(Map<String, dynamic> data, documentId) {
@@ -23,7 +23,7 @@ class InfoContactSchema {
     String address = data['address'];
     String codePost = data['codePost'];
     String city = data['city'];
-    String idContact = data['idContact'];
+    String idProfil = data['idProfil'];
 
     return InfoContactSchema(
       id: documentId,
@@ -32,7 +32,7 @@ class InfoContactSchema {
       address: address,
       codePost: codePost,
       city: city,
-      idContact: idContact,
+      idProfil: idProfil,
     );
   }
 
@@ -43,7 +43,7 @@ class InfoContactSchema {
       'address': address,
       'codePost': codePost,
       'city': city,
-      'idContact': idContact,
+      'idProfil': idProfil,
     };
   }
 }

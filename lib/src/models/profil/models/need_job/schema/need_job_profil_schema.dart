@@ -1,19 +1,19 @@
-class NeedJobSchema {
+class NeedJobProfilSchema {
   String? id; 
   String idCompetenceame; 
   String idLevel;
 
-  NeedJobSchema({
+  NeedJobProfilSchema({
     this.id,
     required this.idCompetenceame,
     required this.idLevel,
   });
 
-  factory NeedJobSchema.forMap(Map<String, dynamic> data, documentId) {
+  factory NeedJobProfilSchema.forMap(Map<String, dynamic> data, documentId) {
     String idCompetenceame = data['idCompetenceame'];
     String idLevel = data['idLevel'];
 
-    return NeedJobSchema(
+    return NeedJobProfilSchema(
       id: documentId,
       idCompetenceame: idCompetenceame, 
       idLevel: idLevel, 

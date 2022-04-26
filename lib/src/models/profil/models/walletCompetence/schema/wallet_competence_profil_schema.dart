@@ -1,19 +1,19 @@
-class WalletCompetenceSchema{
+class WalletCompetenceProfilSchema{
   String? id;
   String idCompetence;
   String idLevel;
   
-  WalletCompetenceSchema({
+  WalletCompetenceProfilSchema({
     this.id,
     required this.idCompetence,
     required this.idLevel,
   });
 
-  factory WalletCompetenceSchema.formMap(Map<String, dynamic> data, documentId) {
+  factory WalletCompetenceProfilSchema.formMap(Map<String, dynamic> data, documentId) {
     String idCompetence = data['idCompetence'];
     String idLevel = data['idLevel'];
 
-    return WalletCompetenceSchema(
+    return WalletCompetenceProfilSchema(
       id: documentId,
       idCompetence: idCompetence, 
       idLevel: idLevel
