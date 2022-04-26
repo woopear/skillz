@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skillz/src/models/condition/models/article/state/article_condition_state.dart';
 import 'package:skillz/src/models/condition/schema/condition_schema.dart';
 import 'package:skillz/src/utils/fire/firestorepath.dart';
@@ -55,7 +54,4 @@ class ConditionState extends ChangeNotifier {
       path: FirestorePath.condition(idCondition),
     );
   }
-
-  /// state de la class Condition
-  final conditionChange = ChangeNotifierProvider((ref) => ConditionState());
 }
