@@ -9,7 +9,7 @@ class NeedJobProfilSchema {
     required this.idLevel,
   });
 
-  factory NeedJobProfilSchema.forMap(Map<String, dynamic> data, documentId) {
+  factory NeedJobProfilSchema.fromMap(Map<String, dynamic> data, documentId) {
     String idCompetenceame = data['idCompetenceame'];
     String idLevel = data['idLevel'];
 
