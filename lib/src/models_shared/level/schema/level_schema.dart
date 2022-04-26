@@ -9,7 +9,7 @@ class LevelSchema {
     required this.level,
   });
 
-  factory LevelSchema.forMap(Map<String, dynamic> data, documentId) {
+  factory LevelSchema.fromMap(Map<String, dynamic> data, documentId) {
     String libelle = data['libelle'];
     int level = data['level'];
 
