@@ -1,22 +1,22 @@
-class JobSchema {
+class JobProfilSchema {
   String? id; 
   String name; 
   String detail; 
   bool online;
 
-  JobSchema({
+  JobProfilSchema({
     this.id,
     required this.name,
     required this.detail,
     required this.online
   });
 
-  factory JobSchema.forMap(Map<String, dynamic> data, documentId) {
+  factory JobProfilSchema.forMap(Map<String, dynamic> data, documentId) {
     String name = data['name'];
     String detail = data['detail'];
     bool online = data['online'];
 
-    return JobSchema(
+    return JobProfilSchema(
       id: documentId,
       name: name, 
       detail: detail, 

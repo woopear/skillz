@@ -1,4 +1,4 @@
-class CompanieSchema{
+class CompanieProfilSchema{
   String? id;
   String denomination;
   String? filliale;
@@ -6,7 +6,7 @@ class CompanieSchema{
   String codeNaf;
   bool online;
   
-  CompanieSchema({
+  CompanieProfilSchema({
     this.id,
     required this.denomination,
     this.filliale,
@@ -15,14 +15,14 @@ class CompanieSchema{
     required this.online,
   });
 
-  factory CompanieSchema.formMap(Map<String, dynamic> data, documentId) {
+  factory CompanieProfilSchema.formMap(Map<String, dynamic> data, documentId) {
     String denomination = data['denomination'];
     String filliale = data['filliale'] ?? "";
     String siret = data['siret'];
     String codeNaf = data['codeNaf'];
     bool online = data['online'];
 
-    return CompanieSchema(
+    return CompanieProfilSchema(
       id: documentId,
       denomination: denomination, 
       siret: siret, 

@@ -1,12 +1,12 @@
 
-class WorkstationSchema{
+class WorkstationProfilSchema{
   String? id;
   String? name;
   bool online;
   List idCompetences;
   String? detail;
   
-  WorkstationSchema({
+  WorkstationProfilSchema({
     this.id,
     this.name,
     required this.online,
@@ -14,13 +14,13 @@ class WorkstationSchema{
     this.detail,
   });
 
-  factory WorkstationSchema.formMap(Map<String, dynamic> data, documentId) {
+  factory WorkstationProfilSchema.formMap(Map<String, dynamic> data, documentId) {
     String name = data['name'] ?? '';
     bool online = data['online'];
     List idCompetences = data['idCompetences'];
     String detail = data['detail'] ?? '';
 
-    return WorkstationSchema(
+    return WorkstationProfilSchema(
       id: documentId,
       name: name, 
       idCompetences: idCompetences, 
