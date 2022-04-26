@@ -25,4 +25,9 @@ class FirestorePath {
   static String infoContacts() => 'infoContacts';
   static String infoContact(String idInfoContact) =>
       'infoContacts/$idInfoContact';
+
+  /// competence
+  static String competences() => 'competences';
+  static String competence(String idCompetence) =>
+      'competences/$idCompetence';
 }
