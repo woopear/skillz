@@ -11,7 +11,7 @@ class JobProfilSchema {
     required this.online
   });
 
-  factory JobProfilSchema.forMap(Map<String, dynamic> data, documentId) {
+  factory JobProfilSchema.fromMap(Map<String, dynamic> data, documentId) {
     String name = data['name'];
     String detail = data['detail'];
     bool online = data['online'];

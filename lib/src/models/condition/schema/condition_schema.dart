@@ -11,7 +11,7 @@ class ConditionSchema {
     required this.title,
   });
 
-  factory ConditionSchema.forMap(Map<String, dynamic> data, documentId) {
+  factory ConditionSchema.fromMap(Map<String, dynamic> data, documentId) {
     Timestamp date = data['date'];
     String title = data['title'];
 

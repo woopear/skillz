@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skillz/src/models/condition/models/article/schema/article_condition_schema.dart';
 import 'package:skillz/src/utils/fire/firestorepath.dart';
@@ -15,7 +15,7 @@ class ArticleConditionState extends ChangeNotifier {
     return _firestore.streamCol(
       path: FirestorePath.articlesCondition(idCondition),
       builder: (data, documentId) =>
-          ArticleConditionSchema.forMap(data, documentId),
+          ArticleConditionSchema.fromMap(data, documentId),
     );
   }
 

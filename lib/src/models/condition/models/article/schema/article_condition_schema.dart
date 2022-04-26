@@ -9,7 +9,7 @@ class ArticleConditionSchema {
     required this.text,
   });
 
-  factory ArticleConditionSchema.forMap(Map<String, dynamic> data, documentId) {
+  factory ArticleConditionSchema.fromMap(Map<String, dynamic> data, documentId) {
     String title = data['title'];
     String text = data['text'];
 
