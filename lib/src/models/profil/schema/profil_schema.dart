@@ -1,4 +1,4 @@
-import 'package:skillz/src/models_shared/index.dart';
+import 'package:skillz/src/models_shared/role/schema/role_schema.dart';
 import 'package:skillz/src/models_shared/state/schema/state_schema.dart';
 
 class ProfilSchema {
