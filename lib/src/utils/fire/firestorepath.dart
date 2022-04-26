@@ -16,4 +16,13 @@ class FirestorePath {
   /// level
   static String levels() => 'levels';
   static String level(String idLevel) => 'levels/$idLevel';
+
+  /// profil
+  static String profils() => 'profils';
+  static String profil(String idProfil) => 'profils/$idProfil';
+
+  /// infoContact
+  static String infoContacts() => 'infoContacts';
+  static String infoContact(String idInfoContact) =>
+      'infoContacts/$idInfoContact';
 }
