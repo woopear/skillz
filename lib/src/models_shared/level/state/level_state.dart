@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:skillz/src/models_shared/level/schema/level_schema.dart';
 import 'package:skillz/src/utils/fire/firestorepath.dart';
@@ -28,12 +29,15 @@ class LevelState extends ChangeNotifier {
   }
 
   /// add
-  Future<void> addLevel(LevelSchema newLevel) async {
+  Future<DocumentReference<Map<String, dynamic>?>?> addLevel(
+    LevelSchema newLevel,
+  ) async {
     final result = await _firestore.add(
       path: FirestorePath.levels(),
       data: newLevel.toMap(),
       returnData: true,
     );
+    return result;
   }
 
   /// update
@@ -46,6 +50,6 @@ class LevelState extends ChangeNotifier {
 
   /// delete
   Future<void> deleteLevel(String idLevel) async {
-    _firestore.delete(path: FirestorePath.level(idLevel));
+    await _firestore.delete(path: FirestorePath.level(idLevel));
   }
 }
