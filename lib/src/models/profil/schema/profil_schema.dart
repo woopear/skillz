@@ -8,6 +8,7 @@ class ProfilSchema {
   String? idEmployeur;
   RoleSchema role;
   StateSchema state;
+  String uid;
 
   ProfilSchema({
     this.id,
@@ -16,12 +17,14 @@ class ProfilSchema {
     this.idEmployeur,
     required this.role,
     required this.state,
+    required this.uid,
   });
 
   factory ProfilSchema.fromMap(Map<String, dynamic> data, documentId) {
     String firstName = data['firstName'];
     String lastName = data['lastName'];
     String idEmployeur = data['idEmployeur'] ?? '';
+    String uid = data['uid'];
     RoleSchema role = data['role'] != null
         ? RoleSchema(
             libelle: data['role']['libelle'],
@@ -42,6 +45,7 @@ class ProfilSchema {
       idEmployeur: idEmployeur,
       role: role,
       state: state,
+      uid: uid,
     );
   }
 
@@ -52,6 +56,7 @@ class ProfilSchema {
       'idEmployeur': idEmployeur ?? '',
       'role': role.toMap(),
       'state': state.toMap(),
+      'uid': uid,
     };
   }
 }
