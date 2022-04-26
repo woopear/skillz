@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skillz/src/models/condition/models/article/schema/article_condition_schema.dart';
 import 'package:skillz/src/utils/fire/firestorepath.dart';
 import 'package:woo_firestore_crud/woo_firestore_crud.dart';
@@ -69,8 +68,4 @@ class ArticleConditionState extends ChangeNotifier {
       return batch.commit();
     });
   }
-
-  /// state de la class ArticleState
-  final articleConditionChange = ChangeNotifierProvider<ArticleConditionState>(
-      (ref) => ArticleConditionState());
 }
