@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:skillz/src/models_shared/info_contact/schema/info_contact_schema.dart';
+import 'package:skillz/src/utils/fire/firestorepath.dart';
 import 'package:woo_firestore_crud/woo_firestore_crud.dart';
 
 class InfoContactState extends ChangeNotifier {
@@ -11,48 +12,72 @@ class InfoContactState extends ChangeNotifier {
     String idInfoContact,
   ) async {
     final result = await _firestore.getDoc(
-      path: path,
+      path: FirestorePath.infoContact(idInfoContact),
     );
     return result;
   }
 
   /// get one id profil
-  Future<List<InfoContactSchema>> getOneInfoContactWithIdProfil(
+  Future<InfoContactSchema?> getOneInfoContactWithIdProfil(
     String idProfil,
   ) async {
     final result = await _firestore.getCol(
-      path: path,
+      path: FirestorePath.infoContacts(),
       builder: (data, documentId) =>
           InfoContactSchema.formMap(data, documentId),
       queryBuilder: (query) => query.where('idProfil', isEqualTo: idProfil),
     );
-    return result;
+    if (result.isNotEmpty) {
+      return result[0];
+    } else {
+      return null;
+    }
   }
 
   /// add
-  Future<InfoContactSchema> addInfoContact(
+  Future<DocumentReference<Map<String, dynamic>?>?> addInfoContact(
     InfoContactSchema newInfoContact,
-  ) async {}
+  ) async {
+    final result = await _firestore.add(
+      path: FirestorePath.infoContacts(),
+      data: newInfoContact.toMap(),
+    );
+
+    return result;
+  }
+
+   /// update avec id
+  Future<void> updateInfoContact(
+    String idInfoContact,
+    InfoContactSchema newInfoContact,
+  ) async {
+    await _firestore.update(
+      path: FirestorePath.infoContact(idInfoContact),
+      data: newInfoContact.toMap(),
+    );
+  }
 
   /// update avec idProfil
-  Future<InfoContactSchema> updateInfoContactWithIdProfil(
+  Future<void> updateInfoContactWithIdProfil(
     String idProfil,
     InfoContactSchema newInfoContact,
-  ) async {}
-
-  /// update avec id
-  Future<InfoContactSchema> updateInfoContact(
-    String idInfoContact,
-    InfoContactSchema newInfoContact,
-  ) async {}
+  ) async {
+    final infoContact = await getOneInfoContactWithIdProfil(idProfil);
+    await updateInfoContact(infoContact!.id!, newInfoContact);
+  }
 
   /// delete
-  Future<InfoContactSchema> deleteInfoContactWithIdProfil(
+  Future<void> deleteInfoContact(
+    String idInfoContact,
+  ) async {
+    await _firestore.delete(path: FirestorePath.infoContact(idInfoContact));
+  }
+
+  /// delete avec id profil
+  Future<void> deleteInfoContactWithIdProfil(
     String idProfil,
-  ) async {}
-
-  /// delete
-  Future<InfoContactSchema> deleteInfoContact(
-    String idInfoContact,
-  ) async {}
+  ) async {
+    final infoContact = await getOneInfoContactWithIdProfil(idProfil);
+    await deleteInfoContact(infoContact!.id!);
+  }
 }
