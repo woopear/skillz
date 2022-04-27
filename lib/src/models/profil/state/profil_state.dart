@@ -58,14 +58,14 @@ class ProfilState extends ChangeNotifier {
   /// supprime un profil avec son id
   Future<void> deleteProfil(String idProfil, String idCompanie) async {
     /// delete companie
-    _companieProfilState.deleteCompanie(idProfil, idCompanie);
+    await _companieProfilState.deleteCompanie(idProfil, idCompanie);
 
     /// todo delete wallet competence
 
     /// todo delete all workstation
 
     /// delete infoContact
-    _infoContactState.deleteInfoContactWithIdProfil(idProfil);
+    await _infoContactState.deleteInfoContactWithIdProfil(idProfil);
 
     /// delete profil
     await _firestore.delete(path: FirestorePath.profil(idProfil));
