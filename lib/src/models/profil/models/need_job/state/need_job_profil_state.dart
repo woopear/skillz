@@ -19,6 +19,50 @@ class NeedJobProfilState extends ChangeNotifier {
     );
   }
 
+  /// get with id level
+  Future<List<NeedJobProfilSchema>> getAllNeedJobWithIdLevel(
+    String idProfil,
+    String idCompanie,
+    String idJobProfil,
+    String idLevel,
+  ) async {
+    return await _firestore.getCol(
+      path: FirestorePath.needJobs(
+        idProfil,
+        idCompanie,
+        idJobProfil,
+      ),
+      builder: (data, documentId) =>
+          NeedJobProfilSchema.fromMap(data, documentId),
+      queryBuilder: (query) => query.where(
+        'idLevel',
+        isEqualTo: idLevel,
+      ),
+    );
+  }
+
+  /// get with id competence
+  Future<List<NeedJobProfilSchema>> getAllNeedJobWithIdCompetence(
+    String idProfil,
+    String idCompanie,
+    String idJobProfil,
+    String idCompetence,
+  ) async {
+    return await _firestore.getCol(
+      path: FirestorePath.needJobs(
+        idProfil,
+        idCompanie,
+        idJobProfil,
+      ),
+      builder: (data, documentId) =>
+          NeedJobProfilSchema.fromMap(data, documentId),
+      queryBuilder: (query) => query.where(
+        'idLevel',
+        isEqualTo: idCompetence,
+      ),
+    );
+  }
+
   /// ajouter un needjob
   Future<DocumentReference<Map<String, dynamic>?>?>? addNeedJobProfil(
       String idProfil,
