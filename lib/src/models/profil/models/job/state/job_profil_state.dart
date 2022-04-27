@@ -13,18 +13,19 @@ class JobProfilState extends ChangeNotifier {
   final _needJobProfil = NeedJobProfilState();
 
   /// ecouter tous les jobs
-  Stream<List<JobProfilSchema>> streamJobsOfCondition(String idProfil) {
+  Stream<List<JobProfilSchema>> streamJobsOfCondition(
+      String idProfil, String idCompanie) {
     return _firestore.streamCol(
-      path: FirestorePath.jobs(idProfil),
+      path: FirestorePath.jobs(idProfil, idCompanie),
       builder: (data, documentId) => JobProfilSchema.fromMap(data, documentId),
     );
   }
 
   /// ajouter un job
   Future<DocumentReference<Map<String, dynamic>?>?>? addJobProfil(
-      String idProfil, JobProfilSchema newJobProfil) async {
+      String idProfil, String idCompanie, JobProfilSchema newJobProfil) async {
     final result = await _firestore.add(
-      path: FirestorePath.jobs(idProfil),
+      path: FirestorePath.jobs(idProfil, idCompanie),
       data: newJobProfil.toMap(),
       returnData: true,
     );
@@ -33,40 +34,42 @@ class JobProfilState extends ChangeNotifier {
   }
 
   /// update un job
-  Future<void> updateJobProfil(
-      String idProfil, String idJobProfil, JobProfilSchema newJobProfil) async {
+  Future<void> updateJobProfil(String idProfil, String idCompanie,
+      String idJobProfil, JobProfilSchema newJobProfil) async {
     await _firestore.update(
-      path: FirestorePath.job(idProfil, idJobProfil),
+      path: FirestorePath.job(idProfil, idCompanie, idJobProfil),
       data: newJobProfil.toMap(),
     );
   }
 
   /// delete un job
-  Future<void> deleteJobProfilById(String idProfil, String idJobProfil) async {
+  Future<void> deleteJobProfilById(
+      String idProfil, String idCompanie, String idJobProfil) async {
     /// delete les needJob
-    await _needJobProfil.deleteAllNeedJobProfil(idProfil, idJobProfil);
+    await _needJobProfil.deleteAllNeedJobProfil(
+        idProfil, idCompanie, idJobProfil);
 
     await _firestore.delete(
-      path: FirestorePath.job(idProfil, idJobProfil),
+      path: FirestorePath.job(idProfil, idCompanie, idJobProfil),
     );
   }
 
   /// delete tous les jobs d'un profil
-  Future<void> deleteAllJobProfil(String idProfil, String idJobProfil) async {
+  Future<void> deleteAllJobProfil(
+      String idProfil, String idCompanie, String idJobProfil) async {
     /// instance firestore pour batch
     WriteBatch batch = FirebaseFirestore.instance.batch();
 
     /// ref collection path
-    CollectionReference refJobs =
-        FirebaseFirestore.instance.collection(FirestorePath.jobs(
-      idProfil,
-    ));
+    CollectionReference refJobs = FirebaseFirestore.instance
+        .collection(FirestorePath.jobs(idProfil, idCompanie));
 
     /// boucle pour delete les jobs
     return refJobs.get().then((querySnapshot) async {
       for (var doc in querySnapshot.docs) {
         /// delete les needJob
-        await _needJobProfil.deleteAllNeedJobProfil(idProfil, idJobProfil);
+        await _needJobProfil.deleteAllNeedJobProfil(
+            idProfil, idCompanie, idJobProfil);
 
         /// delete article
         batch.delete(doc.reference);
