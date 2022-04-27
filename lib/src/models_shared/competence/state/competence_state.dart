@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:skillz/src/models/profil/models/need_job/state/need_job_profil_state.dart';
 import 'package:skillz/src/models/profil/models/wallet_competence/state/wallet_competence_profil_state.dart';
 import 'package:skillz/src/models/profil/models/workstation/state/workstation_profil_state.dart';
 import 'package:skillz/src/models_shared/competence/schema/competence_schema.dart';
@@ -10,6 +11,7 @@ class CompetenceState extends ChangeNotifier {
   final _firestore = WooFirestore.instance;
   final _walletCompetenceProfilState = WalletCompetenceProfilState();
   final _workstationProfilState = WorkstationProfilState();
+  final _needJobProfilState = NeedJobProfilState();
 
   /// get all
   Future<List<CompetenceSchema>> getAllCompetence() async {
@@ -56,9 +58,20 @@ class CompetenceState extends ChangeNotifier {
   /// delete
   Future<bool> deleteCompetence(
     String idProfil,
+    String idCompanie,
+    String idJobProfil,
     String idCompetence,
   ) async {
-    /// todo get all need job avec id competence
+    /// get all need job avec id competence
+    final njps = await _needJobProfilState.getAllNeedJobWithIdCompetence(
+      idProfil,
+      idCompanie,
+      idJobProfil,
+      idCompetence,
+    );
+    if (njps.isNotEmpty) {
+      return false;
+    }
 
     /// get all walletcompetence avec id competence
     final wcps = await _walletCompetenceProfilState

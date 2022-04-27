@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:skillz/src/models/profil/models/need_job/state/need_job_profil_state.dart';
 import 'package:skillz/src/models/profil/models/wallet_competence/state/wallet_competence_profil_state.dart';
 import 'package:skillz/src/models_shared/level/schema/level_schema.dart';
 import 'package:skillz/src/utils/fire/firestorepath.dart';
@@ -8,6 +9,7 @@ import 'package:woo_firestore_crud/woo_firestore_crud.dart';
 class LevelState extends ChangeNotifier {
   final _firestore = WooFirestore.instance;
   final _walletCompetenceProfilState = WalletCompetenceProfilState();
+  final _needJobProfilState = NeedJobProfilState();
 
   late Stream<LevelSchema?>? _levelSelectedForUpdate;
   Stream<LevelSchema?>? get levelSelectedForUpdate => _levelSelectedForUpdate;
@@ -51,9 +53,23 @@ class LevelState extends ChangeNotifier {
   }
 
   /// delete
-  Future<bool> deleteLevel(String idProfil, String idLevel) async {
-    /// todo get all needJob avec id level
-    
+  Future<bool> deleteLevel(
+    String idProfil,
+    String idLevel,
+    String idCompanie,
+    String idJobProfil,
+  ) async {
+    /// get all needJob avec id level
+    final njps = await _needJobProfilState.getAllNeedJobWithIdLevel(
+      idProfil,
+      idCompanie,
+      idJobProfil,
+      idLevel,
+    );
+    if (njps.isNotEmpty) {
+      return false;
+    }
+
     /// get all walletCompetence avec id level
     final wcps = await _walletCompetenceProfilState
         .getAllWalletCompetenceWithIdLevel(idProfil, idLevel);
