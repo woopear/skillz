@@ -41,8 +41,8 @@ class FirestorePath {
   static String workstations(String idProfil) =>
       'profils/$idProfil/workstations';
   static String workstation(
-          String idProfil, String idworkstation) =>
-      'profils/$idProfil/workstations/$idworkstation';
+          String idProfil, String idWorkstation) =>
+      'profils/$idProfil/workstations/$idWorkstation';
       
   /// companie
   static String companie(String idProfil) => 'profils/$idProfil/companies';

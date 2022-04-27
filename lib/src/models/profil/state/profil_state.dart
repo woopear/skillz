@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:skillz/src/models/profil/models/companie/state/companie_profil_state.dart';
 import 'package:skillz/src/models/profil/models/wallet_competence/state/wallet_competence_profil_state.dart';
+import 'package:skillz/src/models/profil/models/workstation/state/workstation_profil_state.dart';
 import 'package:skillz/src/models/profil/schema/profil_schema.dart';
 import 'package:skillz/src/models_shared/info_contact/state/info_contact_state.dart';
 import 'package:skillz/src/utils/fire/firestorepath.dart';
@@ -12,6 +13,7 @@ class ProfilState extends ChangeNotifier {
   final _infoContactState = InfoContactState();
   final _companieProfilState = CompanieProfilState();
   final _walletCompetenceProfilState = WalletCompetenceProfilState();
+  final _workstationProfilState = WorkstationProfilState();
 
   /// stream profil de l'utilisateur connecté
   Stream<ProfilSchema> streamProfilCurrent(String uid) {
@@ -70,6 +72,7 @@ class ProfilState extends ChangeNotifier {
     String idProfil,
     String idCompanie,
     String idWalletCompetence,
+    String idWorkstation,
   ) async {
     /// delete companie
     await _companieProfilState.deleteCompanie(idProfil, idCompanie);
@@ -78,7 +81,8 @@ class ProfilState extends ChangeNotifier {
     await _walletCompetenceProfilState.deleteWalletCompetence(
         idProfil, idWalletCompetence);
 
-    /// todo delete all workstation
+    /// delete all workstation
+    await _workstationProfilState.deleteWorkstation(idProfil, idWorkstation);
 
     /// delete infoContact
     await _infoContactState.deleteInfoContactWithIdProfil(idProfil);
