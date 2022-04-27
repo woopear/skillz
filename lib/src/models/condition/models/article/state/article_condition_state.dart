@@ -8,7 +8,7 @@ class ArticleConditionState extends ChangeNotifier {
   /// instance de firestore
   final _firestore = WooFirestore.instance;
 
-  /// ecoute de tout les articles d'ue condition
+  /// ecoute de tout les articles d'une condition
   Stream<List<ArticleConditionSchema>> streamArticleOfCondition(
       String idCondition) {
     return _firestore.streamCol(
