@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:skillz/src/models/profil/models/companie/state/companie_profil_state.dart';
 import 'package:skillz/src/models/profil/schema/profil_schema.dart';
 import 'package:skillz/src/models_shared/info_contact/state/info_contact_state.dart';
 import 'package:skillz/src/utils/fire/firestorepath.dart';
@@ -8,6 +9,7 @@ import 'package:woo_firestore_crud/woo_firestore_crud.dart';
 class ProfilState extends ChangeNotifier {
   final _firestore = WooFirestore.instance;
   final _infoContactState = InfoContactState();
+  final _companieProfilState = CompanieProfilState();
 
   /// stream profil de l'utilisateur connecté
   Stream<ProfilSchema> streamProfilCurrent(String uid) {
@@ -54,8 +56,9 @@ class ProfilState extends ChangeNotifier {
   }
 
   /// supprime un profil avec son id
-  Future<void> deleteProfil(String idProfil) async {
-    /// todo delete companie
+  Future<void> deleteProfil(String idProfil, String idCompanie) async {
+    /// delete companie
+    _companieProfilState.deleteCompanie(idProfil, idCompanie);
 
     /// todo delete wallet competence
 
