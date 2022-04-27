@@ -43,7 +43,7 @@ class FirestorePath {
   static String workstation(
           String idProfil, String idworkstation) =>
       'profils/$idProfil/workstations/$idworkstation';
-      
+
   /// companie
   static String companie(String idProfil) => 'profils/$idProfil/companies';
   static String companieById(String idProfil, String idCompanie) =>
@@ -53,4 +53,9 @@ class FirestorePath {
   static String jobs(String idProfil) => 'profils/$idProfil/jobs';
   static String job(String idProfil, String idJobProfil) =>
       'profils/$idProfil/jobs/$idJobProfil';
+
+  /// needJob
+  static String needJobs(String idProfil, String idJobProfil) => 'profils/$idProfil/jobs/$idJobProfil/needJobs';
+  static String needJob(String idProfil, String idJobProfil, String idNeedJobProfil) =>
+      'profils/$idProfil/jobs/$idJobProfil/needJobs/$idNeedJobProfil';
 }
