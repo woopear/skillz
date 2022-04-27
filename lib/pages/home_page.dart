@@ -75,11 +75,11 @@ class _HomePageState extends ConsumerState<HomePage> {
                         ),
 
                         /// test btn text
-                        btnText(
+                        BtnText(
                           onPressed: () {},
                           text: 'Se connecter',
                         ),
-                        btnText(
+                        BtnText(
                           onPressed: () {},
                           text: 'Se connecter',
                           fontSize: 24.0,

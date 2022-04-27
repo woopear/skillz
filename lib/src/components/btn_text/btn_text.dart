@@ -1,24 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-Widget btnText({
-  required void Function()? onPressed,
-  required String text,
-  double? fontSize,
-  EdgeInsetsGeometry margin = const EdgeInsets.symmetric(vertical: 20.0),
-  EdgeInsetsGeometry? padding,
-  FontWeight? fontWeight,
-}) =>
-    Container(
-      margin: margin,
-      padding: padding,
+class BtnText extends ConsumerStatefulWidget {
+  void Function()? onPressed;
+  String text;
+  double? fontSize;
+  EdgeInsetsGeometry margin;
+  EdgeInsetsGeometry? padding;
+  FontWeight? fontWeight;
+
+  BtnText({
+    Key? key,
+    required this.onPressed,
+    required this.text,
+    this.fontSize,
+    this.margin = const EdgeInsets.symmetric(vertical: 20.0),
+    this.padding,
+    this.fontWeight,
+  }) : super(key: key);
+
+  @override
+  ConsumerState<ConsumerStatefulWidget> createState() => _BtnTextState();
+}
+
+class _BtnTextState extends ConsumerState<BtnText> {
+  bool underline = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: widget.margin,
+      padding: widget.padding,
       child: TextButton(
-        onPressed: onPressed,
+        onHover: (value) {
+            setState(() {
+              underline = value;
+            });
+          },
+        onPressed: widget.onPressed,
         child: Text(
-          text,
+          widget.text,
           style: const TextStyle().copyWith(
-            fontSize: fontSize,
-            fontWeight: fontWeight,
+            fontSize: widget.fontSize,
+            fontWeight: widget.fontWeight,
+            decoration: underline ? TextDecoration.underline : null,
           ),
         ),
       ),
     );
+  }
+}
