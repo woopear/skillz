@@ -1,11 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:skillz/src/models/profil/models/wallet_competence/state/wallet_competence_profil_state.dart';
+import 'package:skillz/src/models/profil/models/workstation/state/workstation_profil_state.dart';
 import 'package:skillz/src/models_shared/competence/schema/competence_schema.dart';
 import 'package:skillz/src/utils/fire/firestorepath.dart';
 import 'package:woo_firestore_crud/woo_firestore_crud.dart';
 
 class CompetenceState extends ChangeNotifier {
   final _firestore = WooFirestore.instance;
+  final _walletCompetenceProfilState = WalletCompetenceProfilState();
+  final _workstationProfilState = WorkstationProfilState();
 
   /// get all
   Future<List<CompetenceSchema>> getAllCompetence() async {
@@ -50,7 +54,34 @@ class CompetenceState extends ChangeNotifier {
   }
 
   /// delete
-  Future<void> deleteCompetence(String idCompetence) async {
+  Future<bool> deleteCompetence(
+    String idProfil,
+    String idCompetence,
+  ) async {
+    /// todo get all need job avec id competence
+
+    /// get all walletcompetence avec id competence
+    final wcps = await _walletCompetenceProfilState
+        .getAllWalletCompetenceWithIdCompetence(
+      idProfil,
+      idCompetence,
+    );
+    if (wcps.isNotEmpty) {
+      return false;
+    }
+
+    /// get all workstation avec id competence
+    final wps = await _workstationProfilState.getAllWorkstationWithIdCompetence(
+      idProfil,
+      idCompetence,
+    );
+    if (wps.isNotEmpty) {
+      return false;
+    }
+
+    /// delete competence
     await _firestore.delete(path: FirestorePath.competence(idCompetence));
+
+    return true;
   }
 }

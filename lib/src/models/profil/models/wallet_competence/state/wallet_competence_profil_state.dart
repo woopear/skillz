@@ -19,6 +19,39 @@ class WalletCompetenceProfilState extends ChangeNotifier {
     return result.map((event) => event[0]);
   }
 
+  /// get with id competence
+  Future<List<WalletCompetenceProfilSchema>>
+      getAllWalletCompetenceWithIdCompetence(
+    String idProfil,
+    String idCompetence,
+  ) async {
+    return await _firestore.getCol(
+      path: FirestorePath.walletCompetencesProfil(idProfil),
+      builder: (data, documentId) =>
+          WalletCompetenceProfilSchema.formMap(data, documentId),
+      queryBuilder: (query) => query.where(
+        'idCompetence',
+        isEqualTo: idCompetence,
+      ),
+    );
+  }
+
+  /// get with id level
+  Future<List<WalletCompetenceProfilSchema>> getAllWalletCompetenceWithIdLevel(
+    String idProfil,
+    String idLevel,
+  ) async {
+    return await _firestore.getCol(
+      path: FirestorePath.walletCompetencesProfil(idProfil),
+      builder: (data, documentId) =>
+          WalletCompetenceProfilSchema.formMap(data, documentId),
+      queryBuilder: (query) => query.where(
+        'idLevel',
+        isEqualTo: idLevel,
+      ),
+    );
+  }
+
   /// add
   Future<void> addWalletCompetence(
     String idProfil,

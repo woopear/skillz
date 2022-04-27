@@ -31,6 +31,24 @@ class WorkstationProfilState extends ChangeNotifier {
     );
   }
 
+  /// get workstation avec id competence
+  Future<List<WorkstationProfilSchema>> getAllWorkstationWithIdCompetence(
+    String idProfil,
+    String idCompetence,
+  ) async {
+    return await _firestore.getCol(
+      path: FirestorePath.workstations(idProfil),
+      builder: (data, documentId) => WorkstationProfilSchema.formMap(
+        data,
+        documentId,
+      ),
+      queryBuilder: (query) => query.where(
+        'idCompetences',
+        arrayContains: idCompetence,
+      ),
+    );
+  }
+
   /// add
   Future<void> addWorkstation(
     String idProfil,
