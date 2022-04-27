@@ -41,16 +41,21 @@ class FirestorePath {
   static String workstations(String idProfil) =>
       'profils/$idProfil/workstations';
   static String workstation(
-          String idProfil, String idWorkstation) =>
-      'profils/$idProfil/workstations/$idWorkstation';
-      
+          String idProfil, String idworkstation) =>
+      'profils/$idProfil/workstations/$idworkstation';
+
   /// companie
   static String companie(String idProfil) => 'profils/$idProfil/companies';
   static String companieById(String idProfil, String idCompanie) =>
       'profils/$idProfil/companies/$idCompanie';
 
   /// job
-  static String jobs(String idProfil) => 'profils/$idProfil/jobs';
-  static String job(String idProfil, String idJobProfil) =>
-      'profils/$idProfil/jobs/$idJobProfil';
+  static String jobs(String idProfil, String idCompanie) => 'profils/$idProfil/companies/$idCompanie/jobs';
+  static String job(String idProfil, String idCompanie, String idJobProfil) =>
+      'profils/$idProfil/companies/$idCompanie/jobs/$idJobProfil';
+
+  /// needJob
+  static String needJobs(String idProfil, String idCompanie, String idJobProfil) => 'profils/$idProfil/companies/$idCompanie/jobs/$idJobProfil/needJobs';
+  static String needJob(String idProfil, String idCompanie, String idJobProfil, String idNeedJobProfil) =>
+      'profils/$idProfil/companies/$idCompanie/jobs/$idJobProfil/needJobs/$idNeedJobProfil';
 }
