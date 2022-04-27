@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skillz/src/components/btn_close/btn_close.dart';
+import 'package:skillz/src/components/btn_save/btn_save.dart';
+import 'package:skillz/src/components/label_input/label_input.dart';
 import 'package:skillz/src/models/setting/state/setting_provider.dart';
 import 'package:skillz/pages/error_page.dart';
 import 'package:skillz/pages/loading_page.dart';
 import 'package:skillz/src/utils/const/text_error.dart';
-import 'package:skillz/src/components/index.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -57,46 +59,9 @@ class _HomePageState extends ConsumerState<HomePage> {
                           ),
                         ),
 
-                        /// test btn elevated
-                        btnElevated(
-                          context: context,
-                          onPressed: () {},
-                          text: 'Se connecter',
-                          fontSize: 26.0,
-                          paddingBtn: const EdgeInsets.symmetric(
-                            vertical: 24.0,
-                            horizontal: 24.0,
-                          ),
-                        ),
-                        btnElevated(
-                          context: context,
-                          onPressed: () {},
-                          text: 'Se connecter',
-                        ),
-
-                        /// test btn text
-                        BtnText(
-                          onPressed: () {},
-                          text: 'Se connecter',
-                        ),
-                        BtnText(
-                          onPressed: () {},
-                          text: 'Se connecter',
-                          fontSize: 24.0,
-                        ),
-
-                        /// test btn text icon
-                        BtnTextIcon(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.arrow_back_ios_rounded,
-                          ),
-                          text: "Se connecter",
-                        ),
-                        BtnTextIcon(
-                          onPressed: () {},
-                          text: "Se connecter",
-                        ),
+                        btnClose(onPressed: (){}),
+                        btnSave(onPressed: (){}),
+                        labelInput(text: 'coucou :')
                       ],
                     ),
                   ),

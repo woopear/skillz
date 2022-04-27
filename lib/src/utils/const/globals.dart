@@ -5,5 +5,7 @@ class Globals {
   /// page home
   static String textInfoPageBuild = 'Skillz arrive bientot !';
   static String textInfoPageMaintain = 'Désoler Skillz est en maintenance !';
-  
+
+  /// addresse image divers
+  static String urlAucuneImage = '';
 }
