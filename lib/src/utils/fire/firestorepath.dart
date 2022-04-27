@@ -28,6 +28,10 @@ class FirestorePath {
 
   /// competence
   static String competences() => 'competences';
-  static String competence(String idCompetence) =>
-      'competences/$idCompetence';
+  static String competence(String idCompetence) => 'competences/$idCompetence';
+
+  /// companie
+  static String companie(String idProfil) => 'profils/$idProfil/companies';
+  static String companieById(String idProfil, String idCompanie) =>
+      'profils/$idProfil/companies/$idCompanie';
 }
