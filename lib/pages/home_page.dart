@@ -86,9 +86,15 @@ class _HomePageState extends ConsumerState<HomePage> {
                         ),
 
                         /// test btn text icon
-                        btnTextIcon(
+                        BtnTextIcon(
                           onPressed: () {},
-                          icon: const Icon(Icons.arrow_circle_right_outlined),
+                          icon: const Icon(
+                            Icons.arrow_back_ios_rounded,
+                          ),
+                          text: "Se connecter",
+                        ),
+                        BtnTextIcon(
+                          onPressed: () {},
                           text: "Se connecter",
                         ),
                       ],
