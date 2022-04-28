@@ -4,7 +4,6 @@ import 'package:skillz/src/components/btn_close/btn_close.dart';
 import 'package:skillz/src/components/btn_save/btn_save.dart';
 import 'package:skillz/src/components/checkbox_list/checkbox_list.dart';
 import 'package:skillz/src/components/input_basic/input_basic.dart';
-import 'package:skillz/src/components/input_password/input_password.dart';
 import 'package:skillz/src/components/label_input/label_input.dart';
 import 'package:skillz/src/models/setting/state/setting_provider.dart';
 import 'package:skillz/pages/error_page.dart';
@@ -49,7 +48,6 @@ class _HomePageState extends ConsumerState<HomePage> {
                 body: SingleChildScrollView(
                   child: SizedBox(
                     width: _width,
-                    height: _height,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -75,11 +73,6 @@ class _HomePageState extends ConsumerState<HomePage> {
                         ),
                         CheckBoxList(textcheckbox: 'coucou', value: false),
                         CheckBoxList(width: 700.0, textcheckbox: 'coucou', value: false),
-
-                        InputPassword(
-                          labelText: 'mot de passe',
-                          controller: TextEditingController(text: ''),
-                        )
                       ],
                     ),
                   ),
