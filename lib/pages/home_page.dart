@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skillz/src/components/btn_close/btn_close.dart';
 import 'package:skillz/src/components/btn_save/btn_save.dart';
+import 'package:skillz/src/components/btn_text/btn_text.dart';
 import 'package:skillz/src/components/checkbox_list/checkbox_list.dart';
 import 'package:skillz/src/components/input_basic/input_basic.dart';
 import 'package:skillz/src/components/label_input/label_input.dart';
+import 'package:skillz/src/components/link_footer/link_footer.dart';
 import 'package:skillz/src/models/setting/state/setting_provider.dart';
 import 'package:skillz/pages/error_page.dart';
 import 'package:skillz/pages/loading_page.dart';
@@ -59,6 +61,11 @@ class _HomePageState extends ConsumerState<HomePage> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+                        linkFooter(
+                          onPressed: () {},
+                          text: 'Conditions générales',
+                        ),
+                        BtnText(onPressed: (){}, text: 'je suis le btn'),
                         btnClose(onPressed: () {}),
                         btnSave(onPressed: () {}),
                         labelInput(text: 'coucou :'),
@@ -72,7 +79,8 @@ class _HomePageState extends ConsumerState<HomePage> {
                           maxLines: 6,
                         ),
                         CheckBoxList(textcheckbox: 'coucou', value: false),
-                        CheckBoxList(width: 700.0, textcheckbox: 'coucou', value: false),
+                        CheckBoxList(
+                            width: 700.0, textcheckbox: 'coucou', value: false),
                       ],
                     ),
                   ),

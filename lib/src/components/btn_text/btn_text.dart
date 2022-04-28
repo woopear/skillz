@@ -8,6 +8,7 @@ class BtnText extends ConsumerStatefulWidget {
   EdgeInsetsGeometry margin;
   EdgeInsetsGeometry? padding;
   FontWeight? fontWeight;
+  Color? color;
 
   BtnText({
     Key? key,
@@ -17,6 +18,7 @@ class BtnText extends ConsumerStatefulWidget {
     this.margin = const EdgeInsets.symmetric(vertical: 20.0),
     this.padding,
     this.fontWeight,
+    this.color,
   }) : super(key: key);
 
   @override
@@ -41,6 +43,7 @@ class _BtnTextState extends ConsumerState<BtnText> {
         child: Text(
           widget.text,
           style: const TextStyle().copyWith(
+            color: widget.color,
             fontSize: widget.fontSize,
             fontWeight: widget.fontWeight,
             decoration: underline ? TextDecoration.underline : null,
