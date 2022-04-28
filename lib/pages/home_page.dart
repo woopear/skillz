@@ -6,12 +6,9 @@ import 'package:skillz/src/components/btn_text/btn_text.dart';
 import 'package:skillz/src/components/checkbox_list/checkbox_list.dart';
 import 'package:skillz/src/components/input_basic/input_basic.dart';
 import 'package:skillz/src/components/label_input/label_input.dart';
-<<<<<<< HEAD
 import 'package:skillz/src/components/separate/separate.dart';
-=======
 import 'package:skillz/src/components/link_footer/link_footer.dart';
 import 'package:skillz/src/components/title_text_footer/title_text_footer.dart';
->>>>>>> dc0f0946f6837063da3db33c406f1232aaa6f0b8
 import 'package:skillz/src/models/setting/state/setting_provider.dart';
 import 'package:skillz/pages/error_page.dart';
 import 'package:skillz/pages/loading_page.dart';
