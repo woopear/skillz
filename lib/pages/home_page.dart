@@ -5,6 +5,7 @@ import 'package:skillz/src/components/btn_save/btn_save.dart';
 import 'package:skillz/src/components/checkbox_list/checkbox_list.dart';
 import 'package:skillz/src/components/input_basic/input_basic.dart';
 import 'package:skillz/src/components/label_input/label_input.dart';
+import 'package:skillz/src/components/separate/separate.dart';
 import 'package:skillz/src/models/setting/state/setting_provider.dart';
 import 'package:skillz/pages/error_page.dart';
 import 'package:skillz/pages/loading_page.dart';
@@ -72,6 +73,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                           maxLines: 6,
                         ),
                         CheckBoxList(textcheckbox: 'coucou', value: false),
+                        Separate(margin: const EdgeInsets.all(10)),
                         CheckBoxList(width: 700.0, textcheckbox: 'coucou', value: false),
                       ],
                     ),
