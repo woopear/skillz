@@ -15,10 +15,12 @@ Widget inputBasic({
   Color? iconColor,
   Widget? prefixIcon,
   Color? prefixIconColor,
+  bool obscureText = false,
 }) => Container(
       margin: margin,
       padding: padding,
       child: TextFormField(
+        obscureText: obscureText,
         style: const TextStyle().copyWith(fontSize: 20.0),
         maxLines: maxLines,
         initialValue: initialValue,
