@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skillz/src/components/btn_close/btn_close.dart';
 import 'package:skillz/src/components/btn_save/btn_save.dart';
+import 'package:skillz/src/components/checkbox_list/checkbox_list.dart';
 import 'package:skillz/src/components/input_basic/input_basic.dart';
 import 'package:skillz/src/components/label_input/label_input.dart';
 import 'package:skillz/src/models/setting/state/setting_provider.dart';
@@ -71,6 +72,9 @@ class _HomePageState extends ConsumerState<HomePage> {
                           hintText: 'le texte',
                           maxLines: 6,
                         ),
+                        CheckBoxList(textcheckbox: 'coucou', value: false),
+                        CheckBoxList(width: 700.0, textcheckbox: 'coucou', value: false)
+
                       ],
                     ),
                   ),
