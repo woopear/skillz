@@ -7,6 +7,7 @@ import 'package:skillz/src/components/checkbox_list/checkbox_list.dart';
 import 'package:skillz/src/components/input_basic/input_basic.dart';
 import 'package:skillz/src/components/label_input/label_input.dart';
 import 'package:skillz/src/components/link_footer/link_footer.dart';
+import 'package:skillz/src/components/title_text_footer/title_text_footer.dart';
 import 'package:skillz/src/models/setting/state/setting_provider.dart';
 import 'package:skillz/pages/error_page.dart';
 import 'package:skillz/pages/loading_page.dart';
@@ -65,6 +66,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                           onPressed: () {},
                           text: 'Conditions générales',
                         ),
+                        titleTextFooter(text: 'je suis le titre'),
                         BtnText(onPressed: (){}, text: 'je suis le btn'),
                         btnClose(onPressed: () {}),
                         btnSave(onPressed: () {}),
