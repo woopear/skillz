@@ -9,6 +9,7 @@ import 'package:skillz/src/components/label_input/label_input.dart';
 import 'package:skillz/src/components/separate/separate.dart';
 import 'package:skillz/src/components/link_footer/link_footer.dart';
 import 'package:skillz/src/components/sub_title_section_commerce/sub_title_section_commerce.dart';
+import 'package:skillz/src/components/title_page_app/title_page_app.dart';
 import 'package:skillz/src/components/title_section_commerce/title_section_commerce.dart';
 import 'package:skillz/src/components/title_text_footer/title_text_footer.dart';
 import 'package:skillz/src/models/setting/state/setting_provider.dart';
@@ -71,6 +72,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                         ),
                         TitleSectionCommerce(text: 'Compétences'),
                         SubTitleSectionCommerce(text: 'Voici quelque compétence à mon actif'),
+                        TitlePageApp(text: 'Collaborateur'),
                         titleTextFooter(text: 'je suis le titre'),
                         BtnText(onPressed: (){}, text: 'je suis le btn'),
                         btnClose(onPressed: () {}),
