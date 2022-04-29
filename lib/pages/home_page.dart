@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skillz/src/components/box_brand_app/box_brand_app.dart';
 import 'package:skillz/src/components/btn_close/btn_close.dart';
 import 'package:skillz/src/components/btn_save/btn_save.dart';
 import 'package:skillz/src/components/btn_text/btn_text.dart';
@@ -70,6 +71,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                           onPressed: () {},
                           text: 'Conditions générales',
                         ),
+                        boxBrandApp(brand: 'Skillz', context: context),
                         TitleSectionCommerce(text: 'Compétences'),
                         SubTitleSectionCommerce(text: 'Voici quelque compétence à mon actif'),
                         TitlePageApp(text: 'Collaborateur'),
