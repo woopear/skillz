@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-Widget titleFooter({
+Widget copyrightFooter({
   required String text,
   EdgeInsetsGeometry? margin,
   EdgeInsetsGeometry? padding,
-}) =>
-    Container(
+}) => Container(
       margin: margin,
       padding: padding,
       child: Text(
         text,
         style: const TextStyle().copyWith(
-          fontSize: 26,
-          fontWeight: FontWeight.w100,
+          color: Colors.grey,
+          fontSize: 13,
+          fontWeight: FontWeight.bold,
         ),
       ),
     );

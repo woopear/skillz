@@ -5,6 +5,7 @@ import 'package:skillz/src/components/btn_close/btn_close.dart';
 import 'package:skillz/src/components/btn_save/btn_save.dart';
 import 'package:skillz/src/components/btn_text/btn_text.dart';
 import 'package:skillz/src/components/checkbox_list/checkbox_list.dart';
+import 'package:skillz/src/components/copyright_footer/copyright_footer.dart';
 import 'package:skillz/src/components/input_basic/input_basic.dart';
 import 'package:skillz/src/components/label_input/label_input.dart';
 import 'package:skillz/src/components/separate/separate.dart';
@@ -75,6 +76,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                         ),
                         titleFooter(text: 'Skillz'),
                         subTitleFooter(text: 'Gèrer les compétences de vos collaborateurs'),
+                        copyrightFooter(text: '© skillz - 2022'),
                         boxBrandApp(brand: 'Skillz', context: context),
                         TitleSectionCommerce(text: 'Compétences'),
                         SubTitleSectionCommerce(text: 'Voici quelque compétence à mon actif'),
