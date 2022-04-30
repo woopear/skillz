@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skillz/src/components/Waiting_load/Waiting_load.dart';
 import 'package:skillz/src/utils/config/theme/colors.dart';
-import 'package:skillz/src/components/index.dart';
 
 class LoadingPage extends ConsumerWidget {
   const LoadingPage({Key? key}) : super(key: key);

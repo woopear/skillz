@@ -62,31 +62,23 @@ class Upload {
   /// upload bdd
   Future<void> uploadFile({
     required bool pdf,
-    String? url,
-    modelUpload,
   }) async {
-    /// si web sinon le reste
+     /// si web sinon le reste
     if (kIsWeb) {
       if (pdf) {
         /// on recupere le path
         file = pickerPdf!.files.first.bytes;
         extention = pickerPdf!.files.first.extension;
-
-        urlPdf = url;
       } else {
         /// on recupere le path
         file = pickerImage!.files.first.bytes;
         extention = pickerImage!.files.first.extension;
-
-        url = url;
       }
     } else {
       if (pdf) {
         file = File(pickerPdf!.files.single.path!);
-        urlPdf = url;
       } else {
         file = File(pickerImage!.files.single.path!);
-        url = url;
       }
     }
   }

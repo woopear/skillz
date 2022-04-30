@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:skillz/src/components/index.dart';
+import 'package:skillz/src/components/Waiting_error/Waiting_error.dart';
 
 class ErrorPage extends ConsumerWidget {
   String messageError;

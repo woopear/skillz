@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:skillz/src/components/index.dart';
+import 'package:skillz/src/components/Btn_text/Btn_text.dart';
 
 Widget linkFooter({
   required void Function()? onPressed,
