@@ -14,31 +14,31 @@ class StateSchema {
     };
   }
 
-  Map<String, dynamic> waiting() {
-    return {
-      'libelle': 'email en attente de validation',
-      'tag': 'en attente',
-    };
+  factory StateSchema.waiting() {
+    return StateSchema(
+      libelle: 'email en attente de validation',
+      tag: 'en attente',
+    );
   }
 
-  Map<String, dynamic> verify() {
-    return {
-      'libelle': 'email vérifié',
-      'tag': 'validé',
-    };
+  factory StateSchema.verify() {
+    return StateSchema(
+      libelle: 'email vérifié',
+      tag: 'validé',
+    );
   }
 
-  Map<String, dynamic> bannis() {
-    return {
-      'libelle': 'utilisateur bannis',
-      'tag': 'bannis',
-    };
+  factory StateSchema.bannis() {
+    return StateSchema(
+      libelle: 'utilisateur bannis',
+      tag: 'bannis',
+    );
   }
 
-  Map<String, dynamic> archive() {
-    return {
-      'libelle': 'utilisateur archivé',
-      'tag': 'archivé',
-    };
+  factory StateSchema.archive() {
+    return StateSchema(
+      libelle: 'utilisateur archivé',
+      tag: 'archivé',
+    );
   }
 }
