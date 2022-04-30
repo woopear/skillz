@@ -14,15 +14,14 @@ class TitleSkeleton extends ConsumerStatefulWidget {
   }) : super(key: key);
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _TitleSkeletonState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _TitleSkeletonState();
 }
 
 class _TitleSkeletonState extends ConsumerState<TitleSkeleton> {
   final double _sizeSup700 = 36;
   final double _sizeSup500 = 30;
   final double _size = 26;
-  
+
   @override
   Widget build(BuildContext context) {
     /// on recupere la largeur
@@ -37,7 +36,11 @@ class _TitleSkeletonState extends ConsumerState<TitleSkeleton> {
       child: Text(
         widget.text,
         style: const TextStyle().copyWith(
-          fontSize: sup700 ? _sizeSup700 : sup500 ? _sizeSup500 : _size,
+          fontSize: sup700
+              ? _sizeSup700
+              : sup500
+                  ? _sizeSup500
+                  : _size,
           fontWeight: FontWeight.bold,
         ),
       ),

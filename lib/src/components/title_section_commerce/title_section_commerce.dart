@@ -6,12 +6,9 @@ class TitleSectionCommerce extends ConsumerStatefulWidget {
   EdgeInsetsGeometry? margin;
   EdgeInsetsGeometry? padding;
 
-  TitleSectionCommerce({
-    Key? key,
-    required this.text,
-    this.margin,
-    this.padding,
-  }) : super(key: key);
+  TitleSectionCommerce(
+      {Key? key, required this.text, this.margin, this.padding})
+      : super(key: key);
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
@@ -22,7 +19,7 @@ class _TitleSectionCommerceState extends ConsumerState<TitleSectionCommerce> {
   final double _sizeSup700 = 56;
   final double _sizeSup500 = 46;
   final double _size = 36;
-  
+
   @override
   Widget build(BuildContext context) {
     /// on recupere la largeur
@@ -37,7 +34,11 @@ class _TitleSectionCommerceState extends ConsumerState<TitleSectionCommerce> {
       child: Text(
         widget.text,
         style: const TextStyle().copyWith(
-          fontSize: sup700 ? _sizeSup700 : sup500 ? _sizeSup500 : _size,
+          fontSize: sup700
+              ? _sizeSup700
+              : sup500
+                  ? _sizeSup500
+                  : _size,
           fontWeight: FontWeight.bold,
         ),
       ),

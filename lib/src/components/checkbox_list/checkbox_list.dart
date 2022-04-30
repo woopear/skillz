@@ -36,28 +36,29 @@ class _CheckBoxListState extends ConsumerState<CheckBoxList> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        width: widget.width,
-        child: Directionality(
-          textDirection: widget.textDirection,
-          child: CheckboxListTile(
-            title: Text(
-              widget.textcheckbox,
-              style: const TextStyle().copyWith(
-                fontSize: widget.fontSize,
-                fontWeight: widget.fontWeight,
-              ),
+      width: widget.width,
+      child: Directionality(
+        textDirection: widget.textDirection,
+        child: CheckboxListTile(
+          title: Text(
+            widget.textcheckbox,
+            style: const TextStyle().copyWith(
+              fontSize: widget.fontSize,
+              fontWeight: widget.fontWeight,
             ),
-            value: widget.value,
-            activeColor: widget.activeColor ?? ColorCustom().blueLight,
-            checkColor: widget.checkColor,
-            selectedTileColor: widget.selectedTileColor,
-            tileColor: widget.tileColor,
-            onChanged: (value) {
-              setState(() {
-                widget.value = value;
-              });
-            },
           ),
-        ));
+          value: widget.value,
+          activeColor: widget.activeColor ?? ColorCustom().blueLight,
+          checkColor: widget.checkColor,
+          selectedTileColor: widget.selectedTileColor,
+          tileColor: widget.tileColor,
+          onChanged: (value) {
+            setState(() {
+              widget.value = value;
+            });
+          },
+        ),
+      ),
+    );
   }
 }

@@ -22,6 +22,7 @@ class BtnTextIcon extends ConsumerStatefulWidget {
 }
 
 class _BtnTextIconState extends ConsumerState<BtnTextIcon> {
+  /// pour hover
   bool underline = false;
 
   @override

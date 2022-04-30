@@ -18,11 +18,12 @@ class SubTitleSectionCommerce extends ConsumerStatefulWidget {
       _SubTitleSectionCommerceState();
 }
 
-class _SubTitleSectionCommerceState extends ConsumerState<SubTitleSectionCommerce> {
+class _SubTitleSectionCommerceState
+    extends ConsumerState<SubTitleSectionCommerce> {
   final double _sizeSup700 = 46;
   final double _sizeSup500 = 36;
   final double _size = 26;
-  
+
   @override
   Widget build(BuildContext context) {
     /// on recupere la largeur
@@ -38,7 +39,11 @@ class _SubTitleSectionCommerceState extends ConsumerState<SubTitleSectionCommerc
         widget.text,
         style: const TextStyle().copyWith(
           color: Colors.grey,
-          fontSize: sup700 ? _sizeSup700 : sup500 ? _sizeSup500 : _size,
+          fontSize: sup700
+              ? _sizeSup700
+              : sup500
+                  ? _sizeSup500
+                  : _size,
           fontWeight: FontWeight.normal,
         ),
       ),
