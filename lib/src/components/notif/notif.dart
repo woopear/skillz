@@ -12,15 +12,13 @@ class Notif {
 
   ScaffoldFeatureController<SnackBar, SnackBarClosedReason> notification(
       BuildContext context) {
-    return ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          text!,
-          style: TextStyle(
-            color: error! ? Colors.red : Colors.green,
-          ),
+    return ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(
+        text!,
+        style: TextStyle(
+          color: error! ? Colors.red : Colors.green,
         ),
       ),
-    );
+    ));
   }
 }

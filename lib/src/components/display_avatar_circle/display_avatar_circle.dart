@@ -13,11 +13,11 @@ Widget displayAvatartCircle({
             : Colors.black12,
         shape: BoxShape.circle,
       ),
-      child: image != null || image != ''
+      child: image != null && image != ''
           ? CircleAvatar(
               radius: size / 2,
               backgroundImage: NetworkImage(
-                image!,
+                image,
               ),
             )
           : Icon(Icons.person, size: size),

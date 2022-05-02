@@ -7,12 +7,13 @@ import 'package:skillz/src/components/checkbox_list/checkbox_list.dart';
 import 'package:skillz/src/components/input_basic/input_basic.dart';
 import 'package:skillz/src/components/label_input/label_input.dart';
 import 'package:skillz/src/components/separate/separate.dart';
-import 'package:skillz/src/components/link_footer/link_footer.dart';
 import 'package:skillz/src/components/sub_title_section_commerce/sub_title_section_commerce.dart';
 import 'package:skillz/src/components/tableau/tableau_list.dart';
 import 'package:skillz/src/components/title_page_app/title_page_app.dart';
 import 'package:skillz/src/components/title_section_commerce/title_section_commerce.dart';
 import 'package:skillz/src/components/title_text_footer/title_text_footer.dart';
+import 'package:skillz/src/components/box_primary/box_primary.dart';
+import 'package:skillz/src/components/display_avatar_circle_name/display_avatar_circle_name.dart';
 import 'package:skillz/src/models/setting/state/setting_provider.dart';
 import 'package:skillz/pages/error_page.dart';
 import 'package:skillz/pages/loading_page.dart';
@@ -67,9 +68,14 @@ class _HomePageState extends ConsumerState<HomePage> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        linkFooter(
-                          onPressed: () {},
-                          text: 'Conditions générales',
+                        boxPrimary(
+                          width: double.infinity,
+                          context: context,
+                          child: displayAvatartCircleName(
+                            widthResponsive: _width,
+                            userName: 'John Haimez',
+                            context: context,
+                          ),
                         ),
                         TitleSectionCommerce(text: 'Compétences'),
                         SubTitleSectionCommerce(text: 'Voici quelque compétence à mon actif'),

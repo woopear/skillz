@@ -9,6 +9,8 @@ class ColorCustom {
   final Color _blueLight = const Color(0XFF70B3FF);
   final Color _fondClaire = const Color(0XFFE5EEFD);
   final Color _fondDark = const Color(0XFF34393F);
+  final Color _fondDarkBox = const Color(0XFF313131);
+  final Color _fondClaireBox = const Color(0XFFFFFFFF);
 
   Color get orange => _orange;
   Color get orangeMedium => _orangeMedium;
@@ -18,4 +20,6 @@ class ColorCustom {
   Color get blueLight => _blueLight;
   Color get fondClaire => _fondClaire;
   Color get fondDark => _fondDark;
+  Color get fondDarkBox => _fondDarkBox;
+  Color get fondClaireBox => _fondClaireBox;
 }

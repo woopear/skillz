@@ -35,10 +35,10 @@ class _BtnTextState extends ConsumerState<BtnText> {
       padding: widget.padding,
       child: TextButton(
         onHover: (value) {
-            setState(() {
-              underline = value;
-            });
-          },
+          setState(() {
+            underline = value;
+          });
+        },
         onPressed: widget.onPressed,
         child: Text(
           widget.text,

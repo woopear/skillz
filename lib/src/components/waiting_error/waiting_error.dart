@@ -5,10 +5,7 @@ import 'package:skillz/src/utils/const/text_error.dart';
 class WaitingError extends ConsumerWidget {
   String messageError;
 
-  WaitingError({
-    Key? key,
-    required this.messageError,
-  }) : super(key: key);
+  WaitingError({Key? key, required this.messageError}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

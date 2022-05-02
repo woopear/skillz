@@ -5,11 +5,8 @@ import 'package:skillz/src/utils/config/theme/colors.dart';
 
 class WaitingLoad extends ConsumerWidget {
   double size;
-  
-  WaitingLoad({
-    Key? key,
-    this.size = 100,
-  }) : super(key: key);
+
+  WaitingLoad({Key? key, this.size = 100}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

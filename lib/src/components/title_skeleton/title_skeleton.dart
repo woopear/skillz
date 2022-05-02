@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class TitleSectionCommerce extends ConsumerStatefulWidget {
+class TitleSkeleton extends ConsumerStatefulWidget {
   String text;
   EdgeInsetsGeometry? margin;
   EdgeInsetsGeometry? padding;
 
-  TitleSectionCommerce(
-      {Key? key, required this.text, this.margin, this.padding})
-      : super(key: key);
+  TitleSkeleton({
+    Key? key,
+    required this.text,
+    this.margin,
+    this.padding,
+  }) : super(key: key);
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _TitleSectionCommerceState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _TitleSkeletonState();
 }
 
-class _TitleSectionCommerceState extends ConsumerState<TitleSectionCommerce> {
-  final double _sizeSup700 = 56;
-  final double _sizeSup500 = 46;
-  final double _size = 36;
+class _TitleSkeletonState extends ConsumerState<TitleSkeleton> {
+  final double _sizeSup700 = 36;
+  final double _sizeSup500 = 30;
+  final double _size = 26;
 
   @override
   Widget build(BuildContext context) {
