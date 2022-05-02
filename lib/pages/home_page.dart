@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skillz/src/components/box_primary/box_primary.dart';
 import 'package:skillz/src/components/display_avatar_circle_name/display_avatar_circle_name.dart';
 import 'package:skillz/src/models/setting/state/setting_provider.dart';
 import 'package:skillz/pages/error_page.dart';
@@ -55,9 +56,15 @@ class _HomePageState extends ConsumerState<HomePage> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-
-                        displayAvatartCircleName(widthResponsive: _width, userName: 'John Haimez', context: context),
-                        
+                        boxPrimary(
+                          width: double.infinity,
+                          context: context,
+                          child: displayAvatartCircleName(
+                            widthResponsive: _width,
+                            userName: 'John Haimez',
+                            context: context,
+                          ),
+                        ),
                       ],
                     ),
                   ),
