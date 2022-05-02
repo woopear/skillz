@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skillz/src/utils/config/theme/colors.dart';
 
 Widget boxVirgin({
   Widget? child,
@@ -15,7 +16,7 @@ Widget boxVirgin({
     margin: margin,
     padding: padding,
     decoration: BoxDecoration(
-      color: idModeDark ? const Color(0XFF313131) : Colors.white,
+      color: idModeDark ? ColorCustom().fondDarkBox : ColorCustom().fondClaireBox,
       borderRadius: const BorderRadius.all(
         Radius.circular(20.0),
       ),
