@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 
 class TableauContent extends StatefulWidget {
   List contents = [];
+  EdgeInsetsGeometry? margin;
+  EdgeInsetsGeometry? padding;
+
   TableauContent({
     required this.contents,
+    this.margin = const EdgeInsets.only(top: 30.0),
+    this.padding = const EdgeInsets.symmetric(horizontal: 30.0),
     Key? key,
   }) : super(key: key);
 
@@ -27,10 +32,11 @@ class _TableauHeadState extends State<TableauContent> {
           children: [
             TableCell(
               child: Container(
-                margin: const EdgeInsets.only(top: 30.0),
-                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                margin: widget.margin,
+                padding: widget.padding,
                 child: Row(
                   children: [
+                    /// boucle sur le content du table
                     for (var content in _contents)
                       Expanded(
                         flex: 1,
