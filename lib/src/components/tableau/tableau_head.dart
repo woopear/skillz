@@ -36,6 +36,7 @@ class _TableauHeadState extends State<TableauHead> {
                 padding: widget.padding,
                 child: Row(
                   children: [
+                    /// boucle sur le titre
                     for (var title in _titleHead)
                       Expanded(
                         flex: 1,
