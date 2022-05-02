@@ -9,6 +9,7 @@ import 'package:skillz/src/components/label_input/label_input.dart';
 import 'package:skillz/src/components/separate/separate.dart';
 import 'package:skillz/src/components/link_footer/link_footer.dart';
 import 'package:skillz/src/components/sub_title_section_commerce/sub_title_section_commerce.dart';
+import 'package:skillz/src/components/tableau/tableau_list.dart';
 import 'package:skillz/src/components/title_page_app/title_page_app.dart';
 import 'package:skillz/src/components/title_section_commerce/title_section_commerce.dart';
 import 'package:skillz/src/components/title_text_footer/title_text_footer.dart';
@@ -90,6 +91,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                         CheckBoxList(textcheckbox: 'coucou', value: false),
                         Separate(margin: const EdgeInsets.all(10)),
                         CheckBoxList(width: 700.0, textcheckbox: 'coucou', value: false),
+                        TableauList(tableauHead: const ['titre1', 'titre2', 'titre3', 'titre4'], tableauContent: const ['bou', 'bla', 'bla', 'blibli'], ),
                         CheckBoxList(
                             width: 700.0, textcheckbox: 'coucou', value: false),
                       ],
