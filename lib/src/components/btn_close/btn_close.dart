@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 Widget btnClose({
   required void Function()? onPressed,
     String? message,
-  EdgeInsetsGeometry margin = const EdgeInsets.symmetric(vertical: 20.0),
+  EdgeInsetsGeometry? margin = const EdgeInsets.symmetric(vertical: 20.0),
   AlignmentGeometry alignment = Alignment.center,
   EdgeInsetsGeometry? padding,
   double iconSize = 30,

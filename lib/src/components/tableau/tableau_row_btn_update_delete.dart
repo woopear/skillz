@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:skillz/src/components/btn_close/btn_close.dart';
 import 'package:skillz/src/components/btn_delete/btn_delete.dart';
+import 'package:skillz/src/components/btn_save/btn_save.dart';
 import 'package:skillz/src/components/btn_update/btn_update.dart';
 
 class TableauRowBtnUpdateDelete extends StatefulWidget {
@@ -47,21 +48,32 @@ class _TableauRowBtnUpdateDeleteState extends State<TableauRowBtnUpdateDelete> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        seeUpdate ? 
-        btnUpdateEntite(
-          margin: _margin,
-          padding: _padding,
-          onPressed: openCloseSeeUpdate,
-          iconSize: _iconSize,
-        )
-        : btnClose(onPressed: openCloseSeeUpdate ),
-        btnDelete(
-          margin: _margin,
-          padding: _padding,
-          onPressed: _onPressedDelete,
-          iconSize: _iconSize,
-        ),
-        
+        seeUpdate
+            ? btnUpdateEntite(
+                margin: _margin,
+                padding: _padding,
+                onPressed: openCloseSeeUpdate,
+                iconSize: _iconSize,
+              )
+            : btnSave(
+              margin: _margin,
+                padding: _padding,
+                onPressed: (() => {}),
+                iconSize: _iconSize,
+              ),
+        seeUpdate
+            ? btnDelete(
+                margin: _margin,
+                padding: _padding,
+                onPressed: _onPressedDelete,
+                iconSize: _iconSize,
+              )
+            : btnClose(
+                margin: _margin,
+                padding: _padding,
+                onPressed: openCloseSeeUpdate,
+                iconSize: _iconSize,
+              ),
       ],
     );
   }
