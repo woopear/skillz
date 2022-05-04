@@ -4,7 +4,7 @@ import 'package:skillz/src/utils/config/theme/colors.dart';
 Widget btnUpdateEntite({
   required void Function()? onPressed,
   String? message,
-  EdgeInsetsGeometry margin = const EdgeInsets.symmetric(vertical: 20.0),
+  EdgeInsetsGeometry? margin = const EdgeInsets.symmetric(vertical: 20.0),
   AlignmentGeometry alignment = Alignment.center,
   EdgeInsetsGeometry? padding,
   bool file = false,

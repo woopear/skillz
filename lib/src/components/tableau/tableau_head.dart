@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skillz/src/components/tableau/tableau_row_btn_update_delete.dart';
 
 class TableauHead extends StatefulWidget {
   List titleHead = [];
@@ -52,6 +53,9 @@ class _TableauHeadState extends State<TableauHead> {
                           child: Text(title),
                         ),
                       ),
+                    TableauRowBtnUpdateDelete(
+                      onPressedDelete: () => {},
+                    ),
                   ],
                 ),
               ),
