@@ -6,6 +6,8 @@ import 'package:skillz/src/components/btn_text/btn_text.dart';
 import 'package:skillz/src/components/checkbox_list/checkbox_list.dart';
 import 'package:skillz/src/components/input_basic/input_basic.dart';
 import 'package:skillz/src/components/label_input/label_input.dart';
+import 'package:skillz/src/components/layout_content_children_private/layout_content_children_private.dart';
+import 'package:skillz/src/components/layout_page_private/layout_page_private.dart';
 import 'package:skillz/src/components/separate/separate.dart';
 import 'package:skillz/src/components/sub_title_section_commerce/sub_title_section_commerce.dart';
 import 'package:skillz/src/components/title_page_app/title_page_app.dart';
@@ -51,57 +53,53 @@ class _HomePageState extends ConsumerState<HomePage> {
             }*/
 
             /// page home
-            return SafeArea(
-              child: Scaffold(
-                body: SingleChildScrollView(
-                  child: SizedBox(
-                    width: _width,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Skillz',
-                          style: const TextStyle().copyWith(
-                            fontSize: 96.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        boxPrimary(
-                          width: double.infinity,
-                          context: context,
-                          child: displayAvatartCircleName(
-                            widthResponsive: _width,
-                            userName: 'John Haimez',
-                            context: context,
-                          ),
-                        ),
-                        TitleSectionCommerce(text: 'Compétences'),
-                        SubTitleSectionCommerce(text: 'Voici quelque compétence à mon actif'),
-                        TitlePageApp(text: 'Collaborateur'),
-                        titleTextFooter(text: 'je suis le titre'),
-                        BtnText(onPressed: (){}, text: 'je suis le btn'),
-                        btnClose(onPressed: () {}),
-                        btnSave(onPressed: () {}),
-                        labelInput(text: 'coucou :'),
-                        inputBasic(
-                          controller: TextEditingController(text: ''),
-                          labelText: 'le titre',
-                        ),
-                        inputBasic(
-                          controller: TextEditingController(text: ''),
-                          hintText: 'le texte',
-                          maxLines: 6,
-                        ),
-                        CheckBoxList(textcheckbox: 'coucou', value: false),
-                        Separate(margin: const EdgeInsets.all(10)),
-                        CheckBoxList(width: 700.0, textcheckbox: 'coucou', value: false),
-                        CheckBoxList(
-                            width: 700.0, textcheckbox: 'coucou', value: false),
-                      ],
+            return layoutPagePrivate(
+              context: context,
+              child: layoutContentChildrenPrivate(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'Skillz',
+                    style: const TextStyle().copyWith(
+                      fontSize: 96.0,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                ),
+                  boxPrimary(
+                    width: double.infinity,
+                    context: context,
+                    child: displayAvatartCircleName(
+                      widthResponsive: _width,
+                      userName: 'John Haimez',
+                      context: context,
+                    ),
+                  ),
+                  TitleSectionCommerce(text: 'Compétences'),
+                  SubTitleSectionCommerce(
+                      text: 'Voici quelque compétence à mon actif'),
+                  TitlePageApp(text: 'Collaborateur'),
+                  titleTextFooter(text: 'je suis le titre'),
+                  BtnText(onPressed: () {}, text: 'je suis le btn'),
+                  btnClose(onPressed: () {}),
+                  btnSave(onPressed: () {}),
+                  labelInput(text: 'coucou :'),
+                  inputBasic(
+                    controller: TextEditingController(text: ''),
+                    labelText: 'le titre',
+                  ),
+                  inputBasic(
+                    controller: TextEditingController(text: ''),
+                    hintText: 'le texte',
+                    maxLines: 6,
+                  ),
+                  CheckBoxList(textcheckbox: 'coucou', value: false),
+                  Separate(margin: const EdgeInsets.all(10)),
+                  CheckBoxList(
+                      width: 700.0, textcheckbox: 'coucou', value: false),
+                  CheckBoxList(
+                      width: 700.0, textcheckbox: 'coucou', value: false),
+                ],
               ),
             );
           },
