@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget layoutContentOneChildPrivate({
+Widget layoutContentChildApp({
     required Widget child,
 }) {
   return Container(

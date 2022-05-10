@@ -6,8 +6,8 @@ import 'package:skillz/src/components/btn_text/btn_text.dart';
 import 'package:skillz/src/components/checkbox_list/checkbox_list.dart';
 import 'package:skillz/src/components/input_basic/input_basic.dart';
 import 'package:skillz/src/components/label_input/label_input.dart';
-import 'package:skillz/src/components/layout_content_children_private/layout_content_children_private.dart';
-import 'package:skillz/src/components/layout_page_private/layout_page_private.dart';
+import 'package:skillz/src/components/layout_content_children_app/layout_content_children_app.dart';
+import 'package:skillz/src/components/layout_page_app/layout_page_app.dart';
 import 'package:skillz/src/components/separate/separate.dart';
 import 'package:skillz/src/components/sub_title_section_commerce/sub_title_section_commerce.dart';
 import 'package:skillz/src/components/title_page_app/title_page_app.dart';
@@ -53,9 +53,9 @@ class _HomePageState extends ConsumerState<HomePage> {
             }*/
 
             /// page home
-            return layoutPagePrivate(
+            return layoutPageApp(
               context: context,
-              child: layoutContentChildrenPrivate(
+              child: layoutContentChildrenApp(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [

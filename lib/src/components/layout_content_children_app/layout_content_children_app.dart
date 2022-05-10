@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget layoutContentChildrenPrivate({
+Widget layoutContentChildrenApp({
   required List<Widget> children,
   CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
   MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
