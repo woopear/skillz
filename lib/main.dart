@@ -1,12 +1,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:skillz/utils/config/routes/routes.dart';
-import 'package:skillz/utils/config/theme/theme.dart';
-import 'package:skillz/utils/const/globals.dart';
-import 'package:skillz/utils/fire/firebase_options.dart';
+import 'package:skillz/src/utils/config/routes/routes.dart';
+import 'package:skillz/src/utils/config/theme/theme.dart';
+import 'package:skillz/src/utils/const/globals.dart';
+import 'package:skillz/src/utils/fire/firebase_options.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:woo_theme_mode/woo_theme_mode.dart';
+
+GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey=GlobalKey<ScaffoldMessengerState>();
 
 Future<void> main() async {
   /// enleve le # dans l'url
@@ -33,6 +35,7 @@ class _MyAppState extends ConsumerState<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scaffoldMessengerKey: scaffoldMessengerKey,
       debugShowCheckedModeBanner: false,
       title: Globals.titleApp,
       themeMode: ref.watch(wooThemeChange).themeMode,

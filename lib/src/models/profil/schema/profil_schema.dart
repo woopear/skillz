@@ -1,0 +1,62 @@
+import 'package:skillz/src/models_shared/role/schema/role_schema.dart';
+import 'package:skillz/src/models_shared/state/schema/state_schema.dart';
+
+class ProfilSchema {
+  String? id;
+  String firstName;
+  String lastName;
+  String? idEmployeur;
+  RoleSchema role;
+  StateSchema state;
+  String uid;
+
+  ProfilSchema({
+    this.id,
+    required this.firstName,
+    required this.lastName,
+    this.idEmployeur,
+    required this.role,
+    required this.state,
+    required this.uid,
+  });
+
+  factory ProfilSchema.fromMap(Map<String, dynamic> data, documentId) {
+    String firstName = data['firstName'];
+    String lastName = data['lastName'];
+    String idEmployeur = data['idEmployeur'] ?? '';
+    String uid = data['uid'];
+    RoleSchema role = data['role'] != null
+        ? RoleSchema(
+            libelle: data['role']['libelle'],
+            tag: data['role']['tag'],
+          )
+        : RoleSchema(libelle: '', tag: '');
+    StateSchema state = data['state'] != null
+        ? StateSchema(
+            libelle: data['state']['libelle'],
+            tag: data['state']['tag'],
+          )
+        : StateSchema(libelle: '', tag: '');
+
+    return ProfilSchema(
+      id: documentId,
+      firstName: firstName,
+      lastName: lastName,
+      idEmployeur: idEmployeur,
+      role: role,
+      state: state,
+      uid: uid,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'firstName': firstName,
+      'lastName': lastName,
+      'idEmployeur': idEmployeur ?? '',
+      'role': role.toMap(),
+      'state': state.toMap(),
+      'uid': uid,
+    };
+  }
+}

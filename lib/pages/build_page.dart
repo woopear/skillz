@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:skillz/utils/config/theme/colors.dart';
+import 'package:skillz/src/utils/config/theme/colors.dart';
 
 class BuildPage extends ConsumerWidget {
   String textInfo;

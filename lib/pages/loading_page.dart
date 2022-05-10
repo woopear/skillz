@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:skillz/utils/config/theme/colors.dart';
-import 'package:skillz/widgets_shared/index.dart';
+import 'package:skillz/src/components/Waiting_load/Waiting_load.dart';
+import 'package:skillz/src/utils/config/theme/colors.dart';
 
 class LoadingPage extends ConsumerWidget {
   const LoadingPage({Key? key}) : super(key: key);
@@ -11,7 +11,7 @@ class LoadingPage extends ConsumerWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: ColorCustom().blueLight,
-        body: const WaitingLoad(),
+        body: WaitingLoad(),
       ),
     );
   }
