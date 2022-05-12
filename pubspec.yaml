@@ -48,6 +48,8 @@ dependencies:
   http: ^0.13.4
   url_strategy: ^0.2.0
   flutter_spinkit: ^5.1.0
+  shelf_router: ^1.1.2
+  firebase_dart: ^1.0.7
 
 dev_dependencies:
   flutter_test:

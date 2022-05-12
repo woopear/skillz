@@ -34,6 +34,9 @@ class _HomePageState extends ConsumerState<HomePage> {
   /// ensuite on ecoute la data =>
   /// si build on affiche page build
   /// si maintenance on affiche maintenance
+  /// 
+  
+  Future<void> _testApiRome() async {}
 
   @override
   Widget build(BuildContext context) {
