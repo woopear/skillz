@@ -16,3 +16,5 @@ Future<void> main() async {
   final server = await createServer();
   print('Serveur démarré: ${server.address} sur le port ${server.port}');
 }
+
+/// commande pour executer le server : dart run lib/api/server.dart
