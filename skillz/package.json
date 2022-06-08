@@ -40,10 +40,12 @@
     "@adonisjs/session": "^6.4.0",
     "@adonisjs/shield": "^7.0.11",
     "@adonisjs/view": "^6.1.5",
+    "alpinejs": "^3.10.2",
     "luxon": "^2.4.0",
     "pg": "^8.7.3",
     "proxy-addr": "^2.0.7",
     "reflect-metadata": "^0.1.13",
-    "source-map-support": "^0.5.21"
+    "source-map-support": "^0.5.21",
+    "unpoly": "^2.6.0"
   }
 }
