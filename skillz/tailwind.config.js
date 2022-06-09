@@ -25,11 +25,8 @@ module.exports = {
         ahd: "#FF6A00",
         ipd: "#5E12FF",
       },
-      fontFamily: {
-        body: ["Open sans", "sans-serif"],
-      },
       fontSize: {
-        "truc-size": "25rem",
+        "2xs": "0.688rem",
       },
     },
   },
