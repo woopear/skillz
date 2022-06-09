@@ -1,11 +1,11 @@
 module.exports = {
   mode: "jit",
+  darkMode: "class",
   purge: [
     "./resources/views/**/*.edge",
     "./resources/assets/ts/**/*.ts",
     "./resources/assets/js/**/*.js",
   ],
-  darkMode: "class",
   content: [],
   theme: {
     extend: {
@@ -29,7 +29,7 @@ module.exports = {
         body: ["Open sans", "sans-serif"],
       },
       fontSize: {
-        "skillz-size-xs": "4rem",
+        "truc-size": "25rem",
       },
     },
   },
