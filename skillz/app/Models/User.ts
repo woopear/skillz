@@ -1,11 +1,6 @@
 import { DateTime } from "luxon";
 import Hash from "@ioc:Adonis/Core/Hash";
-import {
-  column,
-  beforeSave,
-  BaseModel,
-  afterCreate,
-} from "@ioc:Adonis/Lucid/Orm";
+import { column, beforeSave, BaseModel } from "@ioc:Adonis/Lucid/Orm";
 
 export default class User extends BaseModel {
   @column({ isPrimary: true })
@@ -48,12 +43,11 @@ export default class User extends BaseModel {
     }
   }
 
-  @afterCreate()
+  /*@afterSave()
   public static createIdSkillz(user: User) {
-    if (user.$dirty.email && user.$dirty.id) {
-      user.idskillz = `${user.email}-${user.id}`;
-    }
-  }
+    console.log(user.id);
+    user.idskillz = `${user.email}-${user.id}`;
+  }*/
 
   @beforeSave()
   public static async hashPassword(user: User) {

@@ -1,9 +1,9 @@
 @layout('layouts/layout_public')
 
 @section('main-public')
-<p>page app</p>
+<p class="skillz-size-xs">page app</p>
 <form action="{{route('AuthController.logout')}}?_method=DELETE" method="POST">
     {{ csrfField() }}
-    <button type="submit">Deconnexion</button>
+    <button class="skillz-size-xs text-ac" type="submit">Deconnexion</button>
 </form>
 @end

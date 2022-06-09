@@ -1,5 +1,7 @@
 import type { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
 import User from "App/Models/User";
+import AuthValidator from "App/Validators/AuthValidator";
+import CreateUserValidator from "App/Validators/CreateUserValidator";
 
 export default class AuthController {
   // affiche page register
@@ -22,40 +24,36 @@ export default class AuthController {
 
   // creation de user + connexion
   public async register({ request, response, auth }: HttpContextContract) {
-    const payload = request.only([
-      "firstname",
-      "lastname",
-      "phone",
-      "email",
-      "password",
-    ]);
+    const payload = await request.validate(CreateUserValidator);
 
     // creation user
     const user = await User.create({ ...payload });
+
+    // si user est bien créé
     if (user) {
+      // create idskillz
+      await user.merge({ idskillz: `${user.email}-${user.id}` }).save();
       // connexion user
       await auth.attempt(payload.email, payload.password);
     }
 
-    // si user connecter
+    // si user connecter sinon retour page login
     if (auth.user) {
       return response.redirect("/app");
     }
-    // sinon retour page login
     return response.redirect("public/login");
   }
 
   public async login({ request, response, auth }: HttpContextContract) {
-    const payload = request.only(["email", "password"]);
+    const payload = await request.validate(AuthValidator);
 
     // connexion user
     await auth.attempt(payload.email, payload.password);
 
-    // si user connecter
+    // si user connecter sinon retour page login
     if (auth.user) {
       return response.redirect("/app");
     }
-    // sinon retour page login
     return response.redirect().back();
   }
 
