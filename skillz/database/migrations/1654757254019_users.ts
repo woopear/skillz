@@ -16,9 +16,10 @@ export default class UsersSchema extends BaseSchema {
       table.string("firstname").notNullable();
       table.string("lastname").notNullable();
       table.string("username").notNullable();
-      table.string("idskillz").notNullable();
+      table.string("idskillz").notNullable().unique();
       table.string("email").notNullable().unique();
       table.string("password").notNullable();
+      table.string("phone").notNullable();
       table.string("remember_me_token").nullable();
 
       /**
