@@ -1,5 +1,14 @@
 @layout('layouts/layout_public')
 
 @section('main-public')
-<p>register</p>
+<form action="{{route('AuthController.register')}}" method="POST">
+    {{ csrfField()}}
+
+    <input class="bg-blue-200 block mb-4" type="text" name="firstname" />
+    <input class="bg-blue-200 block mb-4" type="text" name="lastname" />
+    <input class="bg-blue-200 block mb-4" type="text" name="phone" />
+    <input class="bg-blue-200 block mb-4" type="text" name="email" />
+    <input class="bg-blue-200 block mb-4" type="password" name="password" />
+    <button class="bg-blue-200 block mt-4" type="submit">Creer mon compte</button>
+</form>
 @end

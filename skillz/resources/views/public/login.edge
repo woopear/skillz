@@ -1,5 +1,11 @@
 @layout('layouts/layout_public')
 
 @section('main-public')
-<p>login</p>
+<form action="{{route('AuthController.login')}}" method="POST">
+    {{ csrfField()}}
+
+    <input class="bg-blue-200 block mb-4" type="text" name="email" />
+    <input class="bg-blue-200 block mb-4" type="password" name="password" />
+    <button class="bg-blue-200 block mt-4" type="submit">Se connecter</button>
+</form>
 @end

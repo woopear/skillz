@@ -9,11 +9,11 @@ Route.group(() => {
     "silentAuth"
   );
   // envoie formulaire creation user
-  Route.get("/register/create", "AuthController.register");
+  Route.post("/register/create", "AuthController.register");
   // page de connexion
   Route.get("/login", "AuthController.showLogin").middleware("silentAuth");
   // envoie formulaire connexion
-  Route.get("/login/connexion", "AuthController.login");
+  Route.post("/login/connexion", "AuthController.login");
 }).prefix("/public");
 
 // route principale rediriger sur la partie commerce
@@ -22,7 +22,12 @@ Route.get("/", "PublicsController.redirectHome");
 // groupe page app
 Route.group(() => {
   // home
-  Route.get("/", () => {});
+  Route.get("/", ({ view }) => {
+    return view.render("app/home");
+  });
+
+  // deconnexion
+  Route.delete("/logout", "AuthController.logout");
 })
-  .prefix("app/home")
+  .prefix("/app")
   .middleware("auth");
