@@ -26,6 +26,10 @@ Route.group(() => {
     return view.render("app/home");
   });
 
+  Route.get("/collaborateur", ({ view }) => {
+    return view.render("app/collaborateur");
+  });
+
   // deconnexion
   Route.delete("/logout", "AuthController.logout");
 })

@@ -1,0 +1,21 @@
+<section
+    class="bg-fcl dark:bg-fdl text-white text-sm flex items-center w-full pl-4 pr-4 md:pr-16 lg:pr-32 h-8 fixed top-0 z-50">
+    <!-- title -->
+    <h1 class="flex-1">Bonjour {{auth.user.username}} !</h1>
+
+    <!-- menu droit -->
+    <nav class="flex-none">
+        <ul>
+            <!-- btn deconnect -->
+            <li data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom" type="button">
+                @!btns.btnDeconnect()
+                <!-- tooltip -->
+                <div id="tooltip-bottom" role="tooltip"
+                    class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+                    Déconnexion
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</section>

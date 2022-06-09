@@ -1,0 +1,10 @@
+<li class="flex justify-start items-center hover:bg-fd pl-2">
+    <!-- icon -->
+    @if(icon)
+    @!component(icon)
+    @end
+    <!-- lien -->
+    <a class="text-sm block py-4 pr-2 pl-4 {{textColor}}" {{ $props.serializeOnly(['href', 'up-target' ]) }}>
+        {{text}}
+    </a>
+</li>

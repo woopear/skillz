@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" />
+    <title>{{title}}</title>
+    @entryPointStyles('app')
+    @entryPointScripts('app')
+    <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js" defer></script>
+</head>
+
+<body class="flex flex-col bg-fc dark:bg-fd">
+    <!-- menu top -->
+    @include('partials/menu_top_app')
+
+    <!-- main -->
+    <main class="w-full pt-8" content-app>
+        <!-- menu side -->
+        @include('partials/menu_side_app')
+
+        <!-- content main -->
+        <section class="w-full pl-56 pt-8 pr-8 pb-8">
+            @!section('main-app')
+        </section>
+    </main>
+</body>
+
+</html>

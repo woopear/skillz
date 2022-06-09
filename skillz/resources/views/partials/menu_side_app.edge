@@ -1,0 +1,22 @@
+<nav class="bg-fcl dark:bg-fdl text-white w-52 flex-none fixed top-8 bottom-0">
+    <ul class="w-full h-full pt-8 pb-12">
+
+        <!-- tableau de bord -->
+        @!menus.itemMenuSideApp({
+        text: 'Tableau de bord',
+        href: route('/app'),
+        'up-target': 'content-app',
+        icon: "components/icons/dashboard",
+        textColor: request.url() == '/app' ? 'text-ac' : 'text-white',
+        })
+
+        <!-- collaborateurs -->
+        @!menus.itemMenuSideApp({
+        text: 'Collaborateurs',
+        href: route('/app/collaborateur'),
+        'up-target': 'content-app',
+        icon: "components/icons/collaborateur",
+        textColor: request.url() == '/app/collaborateur' ? 'text-ac' : 'text-white',
+        })
+    </ul>
+</nav>

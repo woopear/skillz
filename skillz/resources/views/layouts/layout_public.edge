@@ -7,15 +7,19 @@
     <title>{{title}}</title>
     @entryPointStyles('app')
     @entryPointScripts('app')
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/app.css') }}">
 </head>
 
 <body>
+    <!-- header -->
+    @include('partials/header_public')
+
     <!-- main -->
     <main>
         @!section('main-public')
     </main>
 
+    <!-- footer -->
+    @include('partials/footer_public')
 </body>
 
 </html>
