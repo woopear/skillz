@@ -2,13 +2,16 @@
 width => set la largeur, par defaut elle est sur w-fit
 si besoin full ou autre modifier avec cette variable
 margin => set la marge, par defaut elle est sur m-4
+stylediv => styliser la div qui entour la box
 si vous voulez la supprimer set avec 'null'
 $slots.main() => est le slot du contenu de la box
 -->
 
-@set('w', width || 'w-fit')
-@set('m', margin || 'm-4')
+@set('w', width ?? 'w-fit')
+@set('m', margin ?? 'm-4')
 
-<section class="{{w}} {{m}} bg-fcb dark:bg-fdb rounded-xl py-4 sm:py-7 px-4 sm:px-8">
-    {{{ await $slots.main() }}}
-</section>
+<div class="{{stylediv}}">
+    <section class="{{w}} {{m}} bg-fcb dark:bg-fdb rounded-xl py-4 sm:py-7 px-4 sm:px-8">
+        {{{ await $slots.main() }}}
+    </section>
+</div>

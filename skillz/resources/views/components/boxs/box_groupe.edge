@@ -1,0 +1,27 @@
+<!--
+width => set la largeur, par defaut elle est sur w-fit
+si besoin full ou autre modifier avec cette variable
+margin => set la marge, par defaut elle est sur m-4
+text => text du title
+styledivbox => styliser la div qui entour la box
+styledivtitle => styliser la div qui entour le titre
+si vous voulez la supprimer set avec 'null'
+$slots.main() => est le slot du contenu de la box endessous du titre
+-->
+
+@set('w', width ?? 'w-fit')
+@set('m', margin ?? 'm-4')
+
+@boxs.box({
+stylediv: styledivbox,
+width: w,
+margin: m,
+})
+<!-- title box -->
+@!titles.titleBox({
+text: text,
+stylediv: styledivtitle,
+})
+<!-- content box -->
+{{{ await $slots.main() }}}
+@end
