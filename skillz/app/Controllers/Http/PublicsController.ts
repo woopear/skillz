@@ -1,5 +1,13 @@
 import type { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
 
+/**
+ * nous avons 2 parties du site bien distinctes :
+ * public : pour les pages qui ne sont pas protégées
+ * app : pour les pages protégées
+ * comme nous n'avons pas de page /
+ * nous redirigeons vers la page public
+ */
+
 export default class PublicsController {
   // affiche la page commercial
   public async displayHome({ view }: HttpContextContract) {
