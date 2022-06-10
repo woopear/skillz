@@ -1,13 +1,14 @@
 {
   "extends": "adonis-preset-ts/tsconfig.json",
   "include": [
-    "**/*"
+    "**/*",
   ],
   "exclude": [
     "node_modules",
     "build"
   ],
   "compilerOptions": {
+    "experimentalDecorators": true,
     "outDir": "build",
     "rootDir": "./",
     "sourceMap": true,
@@ -36,5 +37,6 @@
       "@adonisjs/mail",
       "@adonisjs/auth"
     ]
-  }
+  },
+  
 }

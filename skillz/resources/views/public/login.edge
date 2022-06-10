@@ -1,7 +1,5 @@
 @layout('layouts/layout_public')
 
-@set('see', {action: () { console.log()}})
-
 @section('main-public')
 <form action="{{route('AuthController.login')}}" method="POST">
     {{ csrfField()}}
@@ -10,7 +8,4 @@
     <input class="bg-blue-200 block mb-4" type="password" name="password" />
     <button class="bg-blue-200 block mt-4" type="submit">Se connecter</button>
 </form>
-@!btns.btnAdd({
-onclick: see,
-})
 @end
