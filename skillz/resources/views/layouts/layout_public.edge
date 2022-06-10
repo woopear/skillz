@@ -13,12 +13,12 @@
     <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js" defer></script>
 </head>
 
-<body>
+<body class="bg-fc dark:bg-fd flex flex-col">
     <!-- header -->
     @include('partials/header_public')
 
     <!-- main -->
-    <main>
+    <main class="flex-1" content-public>
         @!section('main-public')
     </main>
 

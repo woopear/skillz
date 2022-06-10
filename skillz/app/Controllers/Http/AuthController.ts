@@ -11,7 +11,7 @@ export default class AuthController {
       return response.redirect("/app");
     }
     // sinon on reste sur la meme page
-    return view.render("public/register");
+    return view.render("public/register", { title: "Créer un compte skillz" });
   }
 
   // affiche page login
@@ -20,7 +20,7 @@ export default class AuthController {
     if (auth.user) {
       return response.redirect("/app");
     }
-    return view.render("public/login");
+    return view.render("public/login", { title: "Connexion skillz" });
   }
 
   // creation de user + connexion
