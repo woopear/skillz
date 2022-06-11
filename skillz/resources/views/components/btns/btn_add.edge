@@ -5,14 +5,16 @@
   => stylediv
   styliser la div qui entour la box
   si vous voulez la supprimer set avec 'null'
+
+  => typebutton
+  type du bouton, par defaut 'button'
 -->
 @set('tooltip', activeTooltip ?? true)
+@set('typebutton', typeButton ?? 'button')
 
-
-
-<div class="{{stylediv}}" {{$props.serializeOnly(['onclick'])}}>
+<div class="{{stylediv}} test" {{$props.serializeOnly(['onclick'])}}>
   <li class="h-6 w-6" data-tooltip-target="btn_add" data-tooltip-placement="bottom" type="button">
-    <button type="button">
+    <button type="{{typebutton}}">
       <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clip-path="url(#clip0_2_12879)">
           <path
