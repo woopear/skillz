@@ -1,12 +1,12 @@
 <!--
-=> width
+=> width: string = 'w-fit'
 set la largeur, par defaut elle est sur w-fit
 si besoin full ou autre modifier avec cette variable
 
-=> margin 
+=> margin: string = 'm-4' 
 set la marge, par defaut elle est sur m-4
 
-=> stylediv
+=> stylediv: string
 styliser la div qui entour la box
 si vous voulez la supprimer set avec 'null'
 
@@ -16,6 +16,7 @@ est le slot du contenu de la box
 
 @set('w', width ?? 'w-fit')
 @set('m', margin ?? 'm-4')
+@set('stylediv', styleDiv ?? '')
 
 <div class="{{stylediv}}">
     <section class="{{w}} {{m}} bg-fcb dark:bg-fdb rounded-xl py-4 sm:py-7 px-4 sm:px-8">
