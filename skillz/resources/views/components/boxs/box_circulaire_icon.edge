@@ -21,9 +21,11 @@ style de la div suppérieur
 <div class="{{stylediv}} cursor-pointer w-fit p-2 flex justify-center items-center hover:bg-ihc dark:hover:ihd rounded-full"
     {{targetTip ? `data-tooltip-target="${targetTip}" ` : null}} {{placementTip ?
     `data-tooltip-placement="${placementTip}" ` : null}}>
+    <!-- slot de l'element à mettre dedans -->
     {{{await $slots.main()}}}
-    @if(tooltip)
+
     <!-- tooltip -->
+    @if(tooltip)
     <div {{targetTip ? `id="${targetTip}" role="tooltip" ` : null}}
         class="inline-block absolute invisible z-10 py-2 px-3 text-xs font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
         {{text}}
