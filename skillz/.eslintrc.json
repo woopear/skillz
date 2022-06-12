@@ -1,0 +1,12 @@
+{
+  "extends": ["plugin:adonis/typescriptPackage", "plugin:adonis/typescriptApp"],
+  "plugins": [],
+  "parserOptions": {
+    "project": "skillz/tsconfig.json",
+    "tsconfigRootDir": "./",
+    "sourceType": "module",
+    "extraFileExtensions": [".edge", ".json"]
+  },
+  "ignorePatterns": ["*.edge", ".eslintrc.json", "tsconfig.json"],
+  "rules": {}
+}
