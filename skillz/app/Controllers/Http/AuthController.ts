@@ -4,7 +4,12 @@ import AuthValidator from 'App/Validators/AuthValidator'
 import CreateUserValidator from 'App/Validators/CreateUserValidator'
 
 export default class AuthController {
-  // affiche page register
+  /**
+   * affiche page register
+   * @param {HttpContextContract} { view, auth, response }
+   * @return {*} 
+   * @memberof AuthController
+   */
   public async showRegister ({ view, auth, response }: HttpContextContract) {
     // si user connecter redirige sur app sinon retour register
     if (auth.user) {
@@ -14,7 +19,12 @@ export default class AuthController {
     return view.render('public/register', { title: 'Créer un compte skillz' })
   }
 
-  // affiche page login
+  /**
+   * affiche page login
+   * @param {HttpContextContract} { view, auth, response }
+   * @return {*} 
+   * @memberof AuthController
+   */
   public async showLogin ({ view, auth, response }: HttpContextContract) {
     // si user connecter redirige sur app sinon retour login
     if (auth.user) {
@@ -23,7 +33,12 @@ export default class AuthController {
     return view.render('public/login', { title: 'Connexion skillz' })
   }
 
-  // creation de user + connexion
+  /**
+   * creation de user + connexion
+   * @param {HttpContextContract} { request, response, auth }
+   * @return {*} 
+   * @memberof AuthController
+   */
   public async register ({ request, response, auth }: HttpContextContract) {
     const payload = await request.validate(CreateUserValidator)
 
@@ -43,7 +58,12 @@ export default class AuthController {
     return response.redirect('public/login')
   }
 
-  // connexion user
+  /**
+   * connexion user
+   * @param {HttpContextContract} { request, response, auth }
+   * @return {*} 
+   * @memberof AuthController
+   */
   public async login ({ request, response, auth }: HttpContextContract) {
     const payload = await request.validate(AuthValidator)
 
@@ -57,7 +77,12 @@ export default class AuthController {
     return response.redirect().back()
   }
 
-  // déconnexion user
+  /**
+   * déconnexion user
+   * @param {HttpContextContract} { response, auth }
+   * @return {*} 
+   * @memberof AuthController
+   */
   public async logout ({ response, auth }: HttpContextContract) {
     await auth.logout()
     return response.redirect('/public/login')

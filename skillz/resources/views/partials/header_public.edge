@@ -4,9 +4,21 @@
 
     <!-- menu public -->
     <nav class="h-full">
-        <ul class="h-full">
+        <ul class="h-full flex">
             <!-- lien se connecter -->
+            @!menus.itemMenuHeader({
+            text: "Mon compte",
+            href: route('AuthController.showLogin'),
+            'up-target': 'content-public',
+            })
+
             <!-- lien créer mon compte -->
+            @!menus.itemMenuHeader({
+            text: "Céer mon compte",
+            href: route('AuthController.showRegister'),
+            'up-target': 'content-public',
+            })
+
         </ul>
     </nav>
 
