@@ -1,9 +1,8 @@
 <header class="flex items-center justify-center sticky top-0 w-full h-10 bg-fcl dark:bg-fdl flex-none">
-    <!-- title avec logo -->
-    @!titles.titleLogoHeader()
-
     <!-- menu public -->
-    <nav class="h-full">
+    <nav class="h-full flex flex-1 justify-center">
+        <!-- title avec logo -->
+        @!titles.titleLogoHeader()
         <ul class="h-full flex">
             <!-- lien se connecter -->
             @!menus.itemMenuHeader({
@@ -18,12 +17,23 @@
             href: route('AuthController.showRegister'),
             'up-target': 'content-public',
             })
-
         </ul>
     </nav>
 
     <!-- liste icon action -->
-    <ul class="h-full">
+    <ul x-data="modeDark" class="h-full flex items-center mr-4 md:mr-16 lg:mr-24">
+
         <!-- btn switch mode dark -->
+        @boxs.boxTooltip({
+        text: "Modifier le thème",
+        targetTip: 'btn-switch-mode-dark',
+        placementTip: 'bottom',
+        })
+
+        @menus.itemIconMenuHeader()
+        @!btns.btnIconModeDark()
+        @end
+
+        @end
     </ul>
 </header>
