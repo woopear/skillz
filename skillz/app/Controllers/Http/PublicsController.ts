@@ -9,12 +9,22 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
  */
 
 export default class PublicsController {
-  // affiche la page commercial
+  /**
+   * affiche la page commercial
+   * @param {HttpContextContract} { view }
+   * @return {*} 
+   * @memberof PublicsController
+   */
   public async displayHome ({ view }: HttpContextContract) {
     return view.render('public/home', { title: 'Skillz' })
   }
 
-  // redirection sur la route de la page commercial
+  /**
+   * redirection sur la route de la page commercial
+   * @param {HttpContextContract} { response }
+   * @return {*} 
+   * @memberof PublicsController
+   */
   public async redirectHome ({ response }: HttpContextContract) {
     return response.redirect('public')
   }
