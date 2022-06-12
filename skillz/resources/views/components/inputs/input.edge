@@ -1,0 +1,24 @@
+<!--
+=> stylediv: string
+style de la div du input
+
+=> $props
+- name: string
+- typeInput: string
+- value: string
+- required: boolean
+-->
+
+@set('valueInput', value || '')
+@set('inputValue', flashMessages.get($context.name) || valueInput)
+@set('error', flashMessages.get(`errors.${$context.name}`) || null)
+@set('type', typeInput || null)
+
+<div class="{{stylediv}} mb-3">
+    <input class="rounded-md bg-inc dark:bg-ind" {{ $props.serialize({ value: inputValue, id: $context.name, name:
+        $context.name, type: type}, false) }}>
+
+    @if(error)
+    <span class="text-red-500">{{ error }}</span>
+    @end
+</div>
