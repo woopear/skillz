@@ -1,20 +1,54 @@
-<footer class="flex-none py-10 flex justify-center bg-fc dark:bg-fd">
+<footer class="flex-none py-10 flex justify-center bg-fcl dark:bg-fdl text-white">
     <section class="md:w-10/12 lg:w-8/12">
         <!-- partie marque -->
+        @!titles.titleFooter()
 
         <!-- partie menu -->
-        <nav>
-            <ul></ul>
+        <nav class="px-4 border-b-2 border-b-gray-500 border-t-gray-500 border-t-2 py-8 my-4">
+            <ul>
+                <!-- lien se connecter -->
+                @!menus.itemMenuFooter({
+                href: route('AuthController.showLogin'),
+                'up-target': 'content-public',
+                text: "Se connecter",
+                styleli: "mb-4",
+                })
+
+                <!-- lien créer son compte -->
+                @!menus.itemMenuFooter({
+                href: route('AuthController.showRegister'),
+                'up-target': 'content-public',
+                text: "S'inscrire",
+                })
+            </ul>
         </nav>
 
         <!-- partie copyright avec menu des pages de lois -->
         <section>
             <!-- copyright-->
-            <p></p>
+            <p class="text-2xs text-center mb-4">© - skillz - Tous droit réservé - </p>
 
             <!-- menu lois -->
             <nav>
-                <ul></ul>
+                <ul class="flex justify-evenly">
+                    <!-- lien condition general -->
+                    @!menus.itemMenuFooter({
+                    text: "Conditions générales",
+                    styleli: "text-2xs",
+                    })
+
+                    <!-- lien condition de ventes -->
+                    @!menus.itemMenuFooter({
+                    text: "Conditions de ventes",
+                    styleli: "text-2xs",
+                    })
+
+                    <!-- mentions légales -->
+                    @!menus.itemMenuFooter({
+                    text: "Mentions légales",
+                    styleli: "text-2xs",
+                    })
+                </ul>
             </nav>
         </section>
     </section>

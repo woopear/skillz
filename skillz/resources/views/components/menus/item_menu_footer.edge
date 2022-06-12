@@ -1,0 +1,17 @@
+<!--
+=> styleli
+le style du li
+
+=> text: string
+text du lien
+
+=> $props: object
+- href: route()
+- up-target: 'up-target': 'target'
+-->
+
+<li class="text-xs {{styleli}} ">
+    <a class=" hover:underline cursor-pointer" {{ $props.serializeOnly(['href', 'up-target' ]) }}>
+        {{text}}
+    </a>
+</li>
