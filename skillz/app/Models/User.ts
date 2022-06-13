@@ -38,6 +38,9 @@ export default class User extends BaseModel {
   @column()
   public roleId: number
 
+  @column()
+  public stateId: number
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
