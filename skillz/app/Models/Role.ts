@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, HasOne, hasOne } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import User from './User'
 
 export default class Role extends BaseModel {
@@ -9,8 +9,8 @@ export default class Role extends BaseModel {
   @column()
   public libelle: string
 
-  @hasOne(() => User)
-  public user: HasOne<typeof User>
+  @hasMany(() => User)
+  public user: HasMany<typeof User>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
