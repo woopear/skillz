@@ -1,0 +1,27 @@
+<!--
+=> entites: object
+objet à affiche dans une de tableau
+
+=> props
+- href: route()
+- 'updatarget': 'up-target': 'target'
+
+=> items: array de key de l'objet entite
+-->
+
+<tr>
+    @each((item, index) in items)
+    @if(index == 1)
+    <td class="border-2 cursor-pointer hover:underline text-ac hover:text-ahc dark:text-ad dark:hover:text-ahd">
+        <a {{ $props.serializeOnly(['href', 'up-target' ]) }}>
+            {{entites[item]}}
+        </a>
+    </td>
+    @else
+    <td class="border-2 ">
+        {{entites[item]}}
+    </td>
+    @end
+
+    @end
+</tr>

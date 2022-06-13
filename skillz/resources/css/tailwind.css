@@ -24,3 +24,12 @@ textarea {
   border: none;
   outline: none;
 }
+
+tr th {
+  font-size: 16px;
+}
+
+tr td {
+  padding: 10px;
+  font-size: 16px;
+}

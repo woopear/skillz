@@ -8,9 +8,9 @@ export default class RolesController {
      * @param {HttpContextContract} ctx
      * @memberof RolesController
      */
-  public async get (ctx: HttpContextContract) {
+  public static async get (ctx: HttpContextContract) {
     const roles = await Role.all()
-    // todo mettre view
+    return roles
   }
 
   /**
@@ -18,9 +18,9 @@ export default class RolesController {
      * @param {HttpContextContract} ctx
      * @memberof RolesController
      */
-  public async getOne (ctx: HttpContextContract) {
+  public static async getOne (ctx: HttpContextContract) {
     const role = await Role.findOrFail(ctx.params.id)
-    // todo mettre view
+    return role
   }
 
   /**

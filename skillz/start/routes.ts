@@ -1,38 +1,36 @@
-import Route from "@ioc:Adonis/Core/Route";
+import Route from '@ioc:Adonis/Core/Route'
 
 // route principale rediriger sur la partie commerce
-Route.get("/", "PublicsController.redirectHome");
+Route.get('/', 'PublicsController.redirectHome')
 
 // groupe page public
 Route.group(() => {
   // home
-  Route.get("/", "PublicsController.displayHome");
+  Route.get('/', 'PublicsController.displayHome')
   // page de creation user
-  Route.get("/register", "AuthController.showRegister").middleware(
-    "silentAuth"
-  );
+  Route.get('/register', 'AuthController.showRegister').middleware(
+    'silentAuth'
+  )
   // page de connexion
-  Route.get("/login", "AuthController.showLogin").middleware("silentAuth");
+  Route.get('/login', 'AuthController.showLogin').middleware('silentAuth')
   // envoie formulaire creation user
-  Route.post("/register/create", "AuthController.register");
+  Route.post('/register/create', 'AuthController.register')
   // envoie formulaire connexion
-  Route.post("/login/connexion", "AuthController.login");
-}).prefix("/public");
+  Route.post('/login/connexion', 'AuthController.login')
+}).prefix('/public')
 
 // groupe page app
 Route.group(() => {
   // home
-  Route.get("/", ({ view }) => {
-    return view.render("app/home");
-  });
+  Route.get('/', 'AppsController.showDashboard')
 
   // affiche collaborateurs
-  Route.get("/collaborateur", ({ view }) => {
-    return view.render("app/collaborateur");
-  });
+  Route.get('/collaborateur', ({ view }) => {
+    return view.render('app/collaborateur')
+  })
 
   // deconnexion user
-  Route.delete("/logout", "AuthController.logout");
+  Route.delete('/logout', 'AuthController.logout')
 })
-  .prefix("/app")
-  .middleware("auth");
+  .prefix('/app')
+  .middleware('auth')
