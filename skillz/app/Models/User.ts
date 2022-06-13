@@ -41,6 +41,9 @@ export default class User extends BaseModel {
   @column()
   public stateId: number
 
+  @column()
+  public adresseId: number
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

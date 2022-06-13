@@ -29,6 +29,10 @@ export default class UsersSchema extends BaseSchema {
         .integer('state_id')
         .unsigned()
         .references('states.id')
+      table
+        .integer('adresse_id')
+        .unsigned()
+        .references('adresses.id')
 
       /**
        * Uses timestampz for PostgreSQL and DATETIME2 for MSSQL
