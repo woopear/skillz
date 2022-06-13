@@ -5,7 +5,6 @@ export default class UserValidator {
   constructor (protected ctx: HttpContextContract) {}
 
   // validation pour creation user
-  // TODO manque des données
   public schema = schema.create({
     firstname: schema.string({ trim: true }),
     lastname: schema.string({ trim: true }),
