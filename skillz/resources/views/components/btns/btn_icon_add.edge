@@ -4,13 +4,25 @@
 
   => textColor
   couleur du texte, par defaut '#fff'
+
+  => activeTooltip  
+  active ou pas le tooltip, par defaut activé
 -->
 
+@set('tooltip', activeTooltip ?? true)
 @set('typebutton', typeButton ?? 'button')
 @set('textcolor', textColor ?? 'text-black dark:text-white')
 
-<button class="{{textcolor}}" type="{{typebutton}}">
+<button class="{{textcolor}}" type="{{typebutton}}" data-tooltip-target="btn_add" data-tooltip-placement="bottom">
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
     <path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="currentColor" />
   </svg>
 </button>
+@if(tooltip)
+  <!-- tooltip -->
+  <div id="btn_add" role="tooltip"
+      class="inline-block absolute invisible z-10 py-2 px-3 text-xs font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+      Ajouter
+      <div class="tooltip-arrow" data-popper-arrow></div>
+  </div>
+  @end
