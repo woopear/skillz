@@ -18,27 +18,24 @@
     <!-- content roles -->
     <div>
         <!-- liste des roles -->
-
         @tabs.tabEntites()
         <!-- head tableau -->
         @slot('headTab')
-
         @each((item, index) in ['Id', 'Libelle'])
         @!tabs.headTab({text: item})
         @end
-
         @end
+
         <!-- content tableau -->
         @slot('contentTab')
-
         @each((item, index) in roles)
         @!tabs.contentTab({
         entites: item,
         items: ['id', 'libelle']
         })
         @end
-
         @end
+
         @end
 
         <!-- role selectionné avec update intégrer et delete-->
