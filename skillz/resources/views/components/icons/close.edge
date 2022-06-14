@@ -1,0 +1,18 @@
+<!-- 
+=> text: string
+ajouter un text a l'icon
+
+=> textColor
+couleur du texte
+-->
+
+@set('textcolor', textColor ?? 'text-ac hover:text-ahc dark:text-ad dark:hover:text-ahd')
+
+<div class="{{textcolor}} w-fit flex justify-start items-center">
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+        <path d="M1 1L7 7M7 7L13 13M7 7L13 1M7 7L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+    </svg>
+    @if(text)
+    {{text}}
+    @end
+</div>

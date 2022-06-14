@@ -18,8 +18,6 @@ export default () => ({
       document.documentElement.classList.remove('dark')
     }
     this.isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    !this.isDark ? this.textTooltip = 'Mode clair' : this.textTooltip = 'Mode sombre'
-    console.log(this.textTooltip)
   },
 
   /**
@@ -29,7 +27,10 @@ export default () => ({
   switchModeDark () {
     document.documentElement.classList.toggle('dark')
     this.isDark = !this.isDark
-    !this.isDark ? this.textTooltip = 'Mode clair' : this.textTooltip = 'Mode sombre'
+    if(this.isDark) {
+      localStorage.theme = 'light'
+    }else{
+      localStorage.theme = 'dark'
+    }
   },
-
 })

@@ -5,9 +5,22 @@
 
     <!-- menu droit -->
     <nav class="flex-none">
-        <ul>
+        <ul class="flex items-center">
+            <!-- btn switch mode dark -->
+            <div class="mr-8">
+                @boxs.boxTooltip({
+                text: "Modifier le thème",
+                targetTip: 'btn-switch-mode-dark',
+                placementTip: 'bottom',
+                })
+                @menus.itemIconMenuHeader()
+                @!btns.modeDarkIcon()
+                @end
+                @end
+            </div>
+
             <!-- btn deconnect -->
-            @!btns.btnIconDeconnect()
+            @!btns.deconnectIcon()
         </ul>
     </nav>
 </section>
