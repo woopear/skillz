@@ -2,22 +2,22 @@
 
 @section('main-app')
 <p>Tableau de bord</p>
-<div>
-    <p>coucou</p>
-</div>
 
 @!separators.separator()
 
 <!-- partie roles -->
 <section>
     <!-- title + btn affiche role -->
-    <div class="flex justify-start">
+    <div class="flex justify-start mb-8">
         @!titles.titleBox({text: 'Roles'})
     </div>
 
     <!-- content roles -->
     <div>
+        <!-- btn ajouter role -->
+
         <!-- liste des roles -->
+        @if(roles)
         @tabs.tabEntites()
         <!-- head tableau -->
         @slot('headTab')
@@ -31,14 +31,41 @@
         @each((item, index) in roles)
         @!tabs.contentTab({
         entites: item,
-        items: ['id', 'libelle']
+        items: ['id', 'libelle'],
+        href: route('RolesController.getOneProfilForDashboard', {id: item.id}),
+        'up-target':'content-app'
         })
         @end
         @end
 
         @end
+        @else
+        <!-- text si il y a pas de role -->
+        <div class="flex justify-center mt-12">
+            @!titles.titleBox({text: 'Aucun role'})
+        </div>
+        @end
 
         <!-- role selectionné avec update intégrer et delete-->
+        @if(role)
+        <!-- box role -->
+        @boxs.boxGrContent({
+        text: "Role : " + role.$original.libelle,
+        })
+
+        @end
+
+        <a href="{{route('AppsController.showDashboard')}}" up-target="content-app">Fermer</a>
+        {{role}}
+        @else
+        <!-- text si il y a pas de role selectionné -->
+        <div class="flex justify-center mt-12">
+            @!titles.titleBox({text: 'Aucun role selectionné'})
+        </div>
+        @end
+
     </div>
 </section>
+
+@!separators.separator()
 @end

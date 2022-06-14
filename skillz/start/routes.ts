@@ -24,6 +24,9 @@ Route.group(() => {
   // home
   Route.get('/', 'AppsController.showDashboard')
 
+  // recupere un role et le retourne sur la page dashboard
+  Route.get('/roleselectedfordashboard/:id', 'RolesController.getOneProfilForDashboard')
+
   // affiche collaborateurs
   Route.get('/collaborateur', ({ view }) => {
     return view.render('app/collaborateur')

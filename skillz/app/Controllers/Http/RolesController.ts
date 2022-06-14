@@ -24,6 +24,16 @@ export default class RolesController {
   }
 
   /**
+   * recupere un role et retourne ce role sur la page dashboard
+   * @param ctx HttpContextContract
+   * @returns redirect sur dashboard avec le role en parametre
+   */
+  public async getOneProfilForDashboard (ctx: HttpContextContract) {
+    const role = await Role.findOrFail(ctx.params.id)
+    return ctx.response.redirect().withQs({role: role}).back()
+  }
+
+  /**
    * creation de roles
    * @param {HttpContextContract} ctx
    * @return {*} 

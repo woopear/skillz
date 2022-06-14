@@ -10,8 +10,11 @@ export default class AppsController {
    */
   public async showDashboard (ctx: HttpContextContract) {
     const roles = await RolesController.get(ctx)
-    console.log(roles)
+    const roleSelected = ctx.request.qs().role
 
+    if(roleSelected){
+      return ctx.view.render('app/home', {roles, title: 'Skillz app', role: roleSelected})
+    }
     return ctx.view.render('app/home', {roles, title: 'Skillz app'})
   }
 }
