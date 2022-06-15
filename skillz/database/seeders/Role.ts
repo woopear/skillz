@@ -1,7 +1,26 @@
 import BaseSeeder from '@ioc:Adonis/Lucid/Seeder'
+import Role from 'App/Models/Role'
 
 export default class extends BaseSeeder {
   public async run () {
-    // Write your database queries inside the run method
+    const uniqueKey = 'libelle'
+
+    await Role.updateOrCreateMany(uniqueKey, [
+      {
+        libelle: 'admin',
+      },
+      {
+        libelle: 'candidat',
+      },
+      {
+        libelle: 'root',
+      },
+      {
+        libelle: 'manager',
+      },
+      {
+        libelle: 'rh',
+      },
+    ])
   }
 }
