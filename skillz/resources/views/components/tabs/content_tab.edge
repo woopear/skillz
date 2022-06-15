@@ -4,7 +4,8 @@ objet à affiche dans une de tableau
 
 => props
 - href: route()
-- 'updatarget': 'up-target': 'target'
+- 'up-target': 'target'
+- 'up-scroll': 'target'
 
 => items: array de key de l'objet entite
 -->
@@ -14,7 +15,7 @@ objet à affiche dans une de tableau
     @if(index == 1)
     <td
         class="border-2 border-gray-300 dark:border-gray-800 cursor-pointer hover:underline text-ac hover:text-ahc dark:text-ad dark:hover:text-ahd">
-        <a {{ $props.serializeOnly(['href', 'up-target' ]) }}>
+        <a {{ $props.serializeOnly(['href', 'up-target' , 'up-scroll' ]) }}>
             {{entites[item]}}
         </a>
     </td>

@@ -30,7 +30,7 @@ export default class RolesController {
    */
   public async getOneProfilForDashboard (ctx: HttpContextContract) {
     const role = await Role.findOrFail(ctx.params.id)
-    return ctx.response.redirect().withQs({role: role}).back()
+    return ctx.response.redirect().toRoute('AppsController.showDashboard', {}, {qs: {role}})
   }
 
   /**
@@ -43,7 +43,7 @@ export default class RolesController {
     const { request, response } = ctx
     const payload = await request.validate(RoleValidator)
     await Role.create(payload)
-    return response.redirect().back()
+    return response.redirect().toRoute('AppsController.showDashboard')
   }
 
   /**
@@ -57,7 +57,7 @@ export default class RolesController {
     const payload = await request.validate(RoleValidator)
     const role = await Role.findOrFail(params.id)
     await role.merge(payload).save()
-    return response.redirect().back()
+    return response.redirect().toRoute('AppsController.showDashboard', {}, {qs: {role}})
   }
 
   /**
@@ -70,6 +70,6 @@ export default class RolesController {
     const { response, params } = ctx
     const role = await Role.findOrFail(params.id)
     await role.delete()
-    return response.redirect().back()
+    return response.redirect().toRoute('AppsController.showDashboard')
   }
 }

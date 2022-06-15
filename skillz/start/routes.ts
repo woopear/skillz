@@ -24,10 +24,13 @@ Route.group(() => {
   // home
   Route.get('/', 'AppsController.showDashboard')
 
-  // recupere un role et le retourne sur la page dashboard
+  // role
   Route.get('/roleselectedfordashboard/:id', 'RolesController.getOneProfilForDashboard')
+  Route.post('/role/create', 'RolesController.create')
+  Route.put('/role/update/:id', 'RolesController.update')
+  Route.delete('/role/delete/:id', 'RolesController.delete')
 
-  // affiche collaborateurs
+  // collaborateurs
   Route.get('/collaborateur', ({ view }) => {
     return view.render('app/collaborateur')
   })
