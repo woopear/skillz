@@ -1,7 +1,11 @@
 @layout('layouts/layout_app')
 
+
 @section('main-app')
 <p>Tableau de bord</p>
+
+{{states}}
+{{roles}}
 
 @!separators.separator()
 
@@ -17,12 +21,13 @@
 
     <!-- IF roles liste des roles -->
     @!models.roles.listRole({
-    roles: roles,
+    roles: roles ? roles : [],
     })
 
     <!-- IF role selectionné avec update intégrer et delete-->
     @!models.roles.updateOneRole({
-    role: role,
+    role: role ?? null,
+    roles: roles,
     })
 
 </section>
@@ -35,5 +40,23 @@
     <div class="flex justify-start mb-8">
         @!titles.titleBox({text: 'Gestions des states'})
     </div>
+
+    <!-- btn create role -->
+    @!models.states.createState()
+
+    <!-- IF states liste des states -->
+    @!models.states.listState({
+    states: states ? states : [],
+    })
+
+    <!-- IF state selectionné avec update intégrer et delete-->
+
+    @!models.states.updateOneState({
+    etat: etat ?? null,
+    states: states,
+    })
 </section>
+
+@!separators.separator()
+
 @end

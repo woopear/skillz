@@ -30,6 +30,12 @@ Route.group(() => {
   Route.put('/role/update/:id', 'RolesController.update')
   Route.delete('/role/delete/:id', 'RolesController.delete')
 
+  // state
+  Route.get('/stateselectedfordashboard/:id', 'StatesController.getOneProfilForDashboard')
+  Route.post('state/create', 'StatesController.create')
+  Route.put('state/update/:id', 'StatesController.update')
+  Route.delete('state/delete/:id', 'StatesController.delete')
+
   // collaborateurs
   Route.get('/collaborateur', ({ view }) => {
     return view.render('app/collaborateur')

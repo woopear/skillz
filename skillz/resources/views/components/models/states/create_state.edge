@@ -1,0 +1,51 @@
+<div x-data="{addrole: false}">
+    <div @click="addrole = !addrole">
+        <template x-if="!addrole">
+            @!icons.openCircle({
+            text: 'Créer un nouveau state',
+            margin: 'mb-6'
+            })
+        </template>
+    </div>
+
+    <!--content creation role -->
+    <div class="mb-8">
+        <template x-if="addrole">
+            @boxs.boxContent()
+            <!-- title card + btn close -->
+            <div class="flex justify-between items-start">
+                @!titles.titleBox({
+                text: 'Creer un state'
+                })
+                <button class="ml-24" @click="addrole = !addrole">
+                    @boxs.boxTooltip({
+                    targetTip: 'close-create-role',
+                    text: 'Fermer le volet de création',
+                    placementTip: 'bottom',
+                    })
+                    @!icons.closeCircle({
+                    textColor: 'text-red-500',
+                    })
+                    @end
+                </button>
+            </div>
+
+            <!-- formulaire de creation role -->
+            <form up-submit up-target="content-app" action="{{route('StatesController.create')}}" method="POST">
+                {{ csrfField() }}
+                @!inputs.input({
+                placeholder: 'Le libelle du state',
+                name: 'libelle',
+                type: 'text',
+                stylediv: 'my-8',
+                required: true,
+                })
+                @!btns.form({
+                textbtn: 'Créer',
+                stylediv: 'flex justify-end mt-8',
+                })
+            </form>
+            @end
+        </template>
+    </div>
+</div>

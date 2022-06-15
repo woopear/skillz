@@ -1,9 +1,9 @@
 <!--
-=> roles
-list des roles venant du controller
+=> states
+list des states venant du controller
 -->
 
-@if(roles.length > 0)
+@if(states.length > 0)
 @tabs.tabEntites()
 <!----------------------------------- headTab-->
 @slot('headTab')
@@ -14,21 +14,21 @@ list des roles venant du controller
 <!----------------------------------- end headTab -->
 <!----------------------------------- contentTab -->
 @slot('contentTab')
-@each((item, index) in roles)
+@each((item, index) in states)
 @!tabs.contentTab({
 entites: item,
 items: ['id', 'libelle'],
-href: route('RolesController.getOneProfilForDashboard', {id: item.id}),
-'up-target':'box-role',
-'up-scroll': '.box-role',
+href: route('StatesController.getOneProfilForDashboard', {id: item.id}),
+'up-target':'box-state',
+'up-scroll': '.box-state',
 })
 @end
 @end
 <!----------------------------------- end contentTab -->
 @end
 @else
-<!-- text si il y a pas de role -->
+<!-- text si il y a pas de state -->
 <div class="flex justify-center mt-12">
-    @!titles.titleBox({text: 'Aucun role'})
+    @!titles.titleBox({text: 'Aucun state'})
 </div>
 @end
