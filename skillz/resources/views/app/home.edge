@@ -7,155 +7,33 @@
 
 <!-- partie roles -->
 <section>
-    <!-- title + btn affiche role -->
+    <!-- title role -->
     <div class="flex justify-start mb-8">
         @!titles.titleBox({text: 'Gestions des roles'})
     </div>
 
-    <!-- content roles -->
-    <div x-data="{addrole: false}">
-        <!-- btn ajouter role -->
-        <div @click="addrole = !addrole">
-            <template x-if="!addrole">
-                @!icons.openCircle({
-                text: 'Créer un nouveau role',
-                margin: 'mb-6'
-                })
-            </template>
-        </div>
+    <!-- btn create role -->
+    @!models.roles.createRole()
 
-        <!--content creation role -->
-        <div class="mb-8">
-            <template x-if="addrole">
-                @boxs.boxContent()
-                <!-- title card + btn close -->
-                <div class="flex justify-between items-start">
-                    @!titles.titleBox({
-                    text: 'Creer un role'
-                    })
-                    <button class="ml-24" @click="addrole = !addrole">
-                        @boxs.boxTooltip({
-                        targetTip: 'close-create-role',
-                        text: 'Fermer le volet de création',
-                        placementTip: 'bottom',
-                        })
-                        @!icons.closeCircle({
-                        textColor: 'text-red-500',
-                        })
-                        @end
-                    </button>
-                </div>
+    <!-- IF roles liste des roles -->
+    @!models.roles.listRole({
+    roles: roles,
+    })
 
-                <!-- formulaire de creation role -->
-                <form up-submit up-target="content-app" action="{{route('RolesController.create')}}" method="POST">
-                    {{ csrfField() }}
-                    @!inputs.input({
-                    placeholder: 'Le libelle du role',
-                    name: 'libelle',
-                    type: 'text',
-                    stylediv: 'my-8',
-                    required: true,
-                    })
-                    @!btns.form({
-                    textbtn: 'Créer',
-                    stylediv: 'flex justify-end mt-8',
-                    })
-                </form>
-                @end
-            </template>
-        </div>
+    <!-- IF role selectionné avec update intégrer et delete-->
+    @!models.roles.updateOneRole({
+    role: role,
+    })
 
-        <!-- IF roles -->
-        @if(roles)
-        @tabs.tabEntites()
-        <!----------------------------------- headTab-->
-        @slot('headTab')
-        @each((item, index) in ['Id', 'Libelle'])
-        @!tabs.headTab({text: item})
-        @end
-        @end
-        <!----------------------------------- end headTab -->
-        <!----------------------------------- contentTab -->
-        @slot('contentTab')
-        @each((item, index) in roles)
-        @!tabs.contentTab({
-        entites: item,
-        items: ['id', 'libelle'],
-        href: route('RolesController.getOneProfilForDashboard', {id: item.id}),
-        'up-target':'box-role',
-        'up-scroll': '.box-role',
-        })
-        @end
-        @end
-        <!----------------------------------- end contentTab -->
-        @end
-        @else
-        <!-- text si il y a pas de role -->
-        <div class="flex justify-center mt-12">
-            @!titles.titleBox({text: 'Aucun role'})
-        </div>
-        @end
-
-        <!-- IF role selectionné avec update intégrer et delete-->
-        @if(role)
-        <div class="mt-12 box-role flex justify-center">
-            @boxs.boxContent()
-            <!-- title card + btn close -->
-            <div class="flex justify-between items-center">
-                @!titles.titleBox({
-                text: 'Role : ' + role.$original.libelle,
-                })
-                <div class="ml-6 mr-44">
-                    @!btns.deleteIcon({
-                    upSubmit: 'up-submit',
-                    upTarget: 'up-target: content-app',
-                    pathRoute: route('RolesController.delete', {id: role.$original.id}),
-                    })
-                </div>
-                <a href="{{route('AppsController.showDashboard')}}" up-target="content-app">
-                    @boxs.boxTooltip({
-                    targetTip: 'close-create-role',
-                    text: 'Fermer le volet',
-                    placementTip: 'bottom',
-                    })
-                    @!icons.closeCircle({
-                    textColor: 'text-red-500',
-                    })
-                    @end
-                </a>
-            </div>
-            <!-- formulaire update role -->
-            <form up-submit up-target="content-app" up-scroll=".box-role"
-                action="{{route('RolesController.update', {id: role.$original.id})}}?_method=PUT" method="POST">
-                {{ csrfField() }}
-                @!inputs.labelInput({
-                text: 'Libelle du role : ',
-                styleLabel: 'mt-8'
-                })
-                @!inputs.input({
-                placeholder: 'Le libelle du role',
-                name: 'libelle',
-                type: 'text',
-                stylediv: 'mb-8',
-                required: true,
-                value: role.$original.libelle,
-                })
-                @!btns.form({
-                textbtn: 'Modifier',
-                stylediv: 'flex justify-end mt-8',
-                })
-            </form>
-            @end
-        </div>
-        @else
-        <!-- text si il y a pas de role selectionné -->
-        <div class="flex justify-center mt-12">
-            @!titles.titleBox({text: 'Aucun role selectionné'})
-        </div>
-        @end
-
-    </div>
 </section>
 
 @!separators.separator()
+
+<!-- partie states -->
+<section>
+    <!-- title states -->
+    <div class="flex justify-start mb-8">
+        @!titles.titleBox({text: 'Gestions des states'})
+    </div>
+</section>
 @end
