@@ -6,7 +6,7 @@ export default class AppsController {
   /**
    * affiche la page dashbord
    * @param {HttpContextContract} ctx
-   * @return {roles, title} 
+   * @return {roles, states, title || roles, states, state, role, title} 
    * @memberof AppsController
    */
   public async showDashboard (ctx: HttpContextContract) {
@@ -15,7 +15,6 @@ export default class AppsController {
     const roleSelected = ctx.request.qs().role
     const stateSelected = ctx.request.qs().state
 
-    // si un role est selectionné
     if(roleSelected){
       return ctx.view.render('app/home', {
         roles,
@@ -25,7 +24,6 @@ export default class AppsController {
       })
     }
 
-    // si un state est selectionné
     if(stateSelected){
       return ctx.view.render('app/home', {
         roles,
@@ -35,7 +33,6 @@ export default class AppsController {
       })
     }
 
-    // basic
     return ctx.view.render('app/home', {roles, states, title: 'Skillz app'})
   }
 }

@@ -8,7 +8,7 @@ export default class StatesController {
      * @param {HttpContextContract} ctx
      * @memberof StatesController
      */
-  public static async get (ctx: HttpContextContract) {
+  public static async get () {
     const states = await State.all()
     return states
   }

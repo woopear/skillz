@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, beforeCreate, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import User from './User'
 
 export default class Adresse extends BaseModel {
@@ -15,6 +15,9 @@ export default class Adresse extends BaseModel {
   @column()
   public city: string
 
+  @column()
+  public address: string
+
   @hasMany(() => User)
   public user: HasMany<typeof User>
 
@@ -23,4 +26,11 @@ export default class Adresse extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
+
+  @beforeCreate()
+  public static async createAdresse (adresse: Adresse) {
+    if(adresse.$dirty.street && adresse.$dirty.codePost && adresse.$dirty.city) {
+      adresse.address = `${adresse.street.toLowerCase()} ${adresse.codePost} ${adresse.city.toLowerCase()}`
+    }
+  }
 }
