@@ -12,10 +12,6 @@ export default class extends BaseSchema {
       table.string('code_naf').notNullable()
       table.boolean('online').notNullable()
       table.string('email').notNullable()
-
-      /**
-       * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
-       */
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
     })

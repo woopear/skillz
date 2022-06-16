@@ -8,7 +8,7 @@ export default class RolesController {
      * @param {HttpContextContract} ctx
      * @memberof RolesController
      */
-  public static async get (ctx: HttpContextContract) {
+  public static async get () {
     const roles = await Role.all()
     return roles
   }

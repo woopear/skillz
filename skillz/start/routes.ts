@@ -7,14 +7,18 @@ Route.get('/', 'PublicsController.redirectHome')
 Route.group(() => {
   // home
   Route.get('/', 'PublicsController.displayHome')
+
   // page de creation user
   Route.get('/register', 'AuthController.showRegister').middleware(
     'silentAuth'
   )
+
   // page de connexion
   Route.get('/login', 'AuthController.showLogin').middleware('silentAuth')
-  // envoie formulaire creation user
+
+  // envoie formulaire create user
   Route.post('/register/create', 'AuthController.register')
+
   // envoie formulaire connexion
   Route.post('/login/connexion', 'AuthController.login')
 }).prefix('/public')
