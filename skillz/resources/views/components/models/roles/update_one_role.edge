@@ -1,0 +1,63 @@
+<!--
+=> role
+le role selectionné
+-->
+
+@if(role)
+<div class="mt-12 box-role flex justify-center">
+    @boxs.boxContent()
+    <!-- title card + btn close -->
+    <div class="flex justify-between items-center">
+        @!titles.titleBox({
+        text: 'Role : ' + role.$original.libelle,
+        })
+        <div class="ml-6 mr-44">
+            @!btns.deleteIcon({
+            upSubmit: 'up-submit',
+            upTarget: 'up-target: content-app',
+            pathRoute: route('RolesController.delete', {id: role.$original.id}),
+            })
+        </div>
+        <a href="{{route('AppsController.showDashboard')}}" up-target="content-app">
+            @boxs.boxTooltip({
+            targetTip: 'close-create-role',
+            text: 'Fermer le volet',
+            placementTip: 'bottom',
+            })
+            @!icons.closeCircle({
+            textColor: 'text-red-500',
+            })
+            @end
+        </a>
+    </div>
+    <!-- formulaire update role -->
+    <form up-submit up-target="content-app" up-scroll=".box-role"
+        action="{{route('RolesController.update', {id: role.$original.id})}}?_method=PUT" method="POST">
+        {{ csrfField() }}
+        @!inputs.labelInput({
+        text: 'Libelle du role : ',
+        styleLabel: 'mt-8'
+        })
+        @!inputs.input({
+        placeholder: 'Le libelle du role',
+        name: 'libelle',
+        type: 'text',
+        stylediv: 'mb-8',
+        required: true,
+        value: role.$original.libelle,
+        })
+        @!btns.form({
+        textbtn: 'Modifier',
+        stylediv: 'flex justify-end mt-8',
+        })
+    </form>
+    @end
+</div>
+@else
+<!-- text si il y a pas de role selectionné -->
+@if(roles.length > 0)
+<div class="flex justify-center mt-12">
+    @!titles.titleBox({text: 'Aucun role selectionné'})
+</div>
+@end
+@end

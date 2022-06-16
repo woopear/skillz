@@ -1,0 +1,30 @@
+<!--
+=> stylediv: string
+style de la div du input
+
+=> $props
+- name: string
+- typeInput: string
+- value: string
+- required: boolean
+
+=> $slot
+content pour icon
+-->
+
+@set('valueInput', value || '')
+@set('inputValue', flashMessages.get($context.name) || valueInput)
+@set('error', flashMessages.get(`errors.${$context.name}`) || null)
+@set('type', typeInput || null)
+
+<div class="{{stylediv}} mb-3 relative">
+    <input class="rounded-md bg-inc dark:bg-ind pr-12" {{ $props.serialize({ value: inputValue, id: $context.name, name:
+        $context.name, type: type}, false) }}>
+    <button type="button" class="absolute top-2.5 right-2.5">
+        {{{ await $slots.main() }}}
+    </button>
+
+    @if(error)
+    <span class="text-red-500">{{ error }}</span>
+    @end
+</div>

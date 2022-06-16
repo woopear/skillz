@@ -1,0 +1,13 @@
+<!--
+=> text: string
+text du lien dans le menu header
+
+=> $props
+- href: route()
+- up-target: 'update-target': 'target'
+-->
+
+<li class="h-full px-4">
+    <a class="flex items-center h-full text-xs text-white hover:text-ac" {{ $props.serializeOnly(['href', 'up-target' ])
+        }}>{{text}}</a>
+</li>

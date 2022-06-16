@@ -1,0 +1,13 @@
+<!--
+=> text: string
+le text du label
+
+=> styleLabel: string
+style du label en plus
+-->
+
+@set('stylelabel', styleLabel || 'mb-2')
+
+<label class="block text-lg font-thin {{stylelabel}}" for="{{ $context.name }}">
+    {{text}}
+</label>

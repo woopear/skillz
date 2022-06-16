@@ -1,0 +1,16 @@
+<!--
+=> slot
+- headTab
+- contentTab
+-->
+
+<table class="table-auto w-full">
+    <thead class="bg-gray-100 dark:bg-gray-800">
+        <tr>
+            {{{ await $slots.headTab() }}}
+        </tr>
+    </thead>
+    <tbody>
+        {{{ await $slots.contentTab() }}}
+    </tbody>
+</table>

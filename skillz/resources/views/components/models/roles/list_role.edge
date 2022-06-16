@@ -1,0 +1,34 @@
+<!--
+=> roles
+list des roles venant du controller
+-->
+
+@if(roles.length > 0)
+@tabs.tabEntites()
+<!----------------------------------- headTab-->
+@slot('headTab')
+@each((item, index) in ['Id', 'Libelle'])
+@!tabs.headTab({text: item})
+@end
+@end
+<!----------------------------------- end headTab -->
+<!----------------------------------- contentTab -->
+@slot('contentTab')
+@each((item, index) in roles)
+@!tabs.contentTab({
+entites: item,
+items: ['id', 'libelle'],
+href: route('RolesController.getOneProfilForDashboard', {id: item.id}),
+'up-target':'box-role',
+'up-scroll': '.box-role',
+})
+@end
+@end
+<!----------------------------------- end contentTab -->
+@end
+@else
+<!-- text si il y a pas de role -->
+<div class="flex justify-center mt-12">
+    @!titles.titleBox({text: 'Aucun role'})
+</div>
+@end

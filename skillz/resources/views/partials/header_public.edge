@@ -1,0 +1,39 @@
+<header class="flex items-center justify-center sticky top-0 w-full h-10 bg-fcl dark:bg-fdl flex-none">
+    <!-- menu public -->
+    <nav class="h-full flex flex-1 justify-center">
+        <!-- title avec logo -->
+        @!titles.titleLogoHeader()
+        <ul class="h-full flex">
+            <!-- lien se connecter -->
+            @!menus.itemMenuHeader({
+            text: "Mon compte",
+            href: route('AuthController.showLogin'),
+            'up-target': 'content-public',
+            })
+
+            <!-- lien créer mon compte -->
+            @!menus.itemMenuHeader({
+            text: "Céer mon compte",
+            href: route('AuthController.showRegister'),
+            'up-target': 'content-public',
+            })
+        </ul>
+    </nav>
+
+    <!-- liste icon action -->
+    <ul x-data="modeDark" class="h-full flex items-center mr-4 md:mr-16 lg:mr-24">
+
+        <!-- btn switch mode dark -->
+        @boxs.boxTooltip({
+        text: "Modifier le thème",
+        targetTip: 'btn-switch-mode-dark',
+        placementTip: 'bottom',
+        })
+
+        @menus.itemIconMenuHeader()
+        @!btns.modeDarkIcon()
+        @end
+
+        @end
+    </ul>
+</header>

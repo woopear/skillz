@@ -1,0 +1,26 @@
+<section
+    class="bg-fcl dark:bg-fdl text-white text-sm flex items-center w-full pl-4 pr-4 md:pr-16 lg:pr-32 h-8 fixed top-0 z-50">
+    <!-- title -->
+    @!titles.titleMenuTopApp()
+
+    <!-- menu droit -->
+    <nav class="flex-none">
+        <ul class="flex items-center">
+            <!-- btn switch mode dark -->
+            <div class="mr-8">
+                @boxs.boxTooltip({
+                text: "Modifier le thème",
+                targetTip: 'btn-switch-mode-dark',
+                placementTip: 'bottom',
+                })
+                @menus.itemIconMenuHeader()
+                @!btns.modeDarkIcon()
+                @end
+                @end
+            </div>
+
+            <!-- btn deconnect -->
+            @!btns.deconnectIcon()
+        </ul>
+    </nav>
+</section>

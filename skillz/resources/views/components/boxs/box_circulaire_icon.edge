@@ -1,0 +1,35 @@
+<!--
+=> text: string
+text du tooltip
+
+=> toolTip: bool = false
+affiche ou pas tooltip
+
+=> targetTip: string
+nom de target pour toolTip
+
+=> placementTip: string
+placement du tooltip (top, bottom, left, right)
+
+=> styleDiv: string = ''
+style de la div suppérieur
+-->
+
+@set('tooltip', toolTip ?? false)
+@set('stylediv', styleDiv ?? '')
+
+<div class="{{stylediv}} cursor-pointer w-fit p-2 flex justify-center items-center hover:bg-ihc dark:hover:ihd rounded-full"
+    {{targetTip ? `data-tooltip-target="${targetTip}" ` : null}} {{placementTip ?
+    `data-tooltip-placement="${placementTip}" ` : null}}>
+    <!-- slot de l'element à mettre dedans -->
+    {{{await $slots.main()}}}
+
+    <!-- tooltip -->
+    @if(tooltip)
+    <div {{targetTip ? `id="${targetTip}" role="tooltip" ` : null}}
+        class="inline-block absolute invisible z-10 py-2 px-3 text-xs font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+        {{text}}
+        <div class="tooltip-arrow" data-popper-arrow></div>
+    </div>
+    @end
+</div>

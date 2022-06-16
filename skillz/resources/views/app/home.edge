@@ -1,0 +1,62 @@
+@layout('layouts/layout_app')
+
+
+@section('main-app')
+
+@!titles.titlePageApp({
+text: 'Tableau de bord',
+})
+
+@!separators.separator()
+
+<!-- partie roles -->
+<section>
+    <!-- title role -->
+    <div class="flex justify-start mb-8">
+        @!titles.titleBox({text: 'Gestions des roles'})
+    </div>
+
+    <!-- btn create role -->
+    @!models.roles.createRole()
+
+    <!-- IF roles liste des roles -->
+    @!models.roles.listRole({
+    roles: roles ? roles : [],
+    })
+
+    <!-- IF role selectionné avec update intégrer et delete-->
+    @!models.roles.updateOneRole({
+    role: role ?? null,
+    roles: roles,
+    })
+
+</section>
+
+@!separators.separator()
+
+<!-- partie states -->
+<section>
+    <!-- title states -->
+    <div class="flex justify-start mb-8">
+        @!titles.titleBox({text: 'Gestions des states'})
+    </div>
+
+    <!-- btn create role -->
+    @!models.states.createState()
+
+    <!-- IF states liste des states -->
+    @!models.states.listState({
+    states: states ? states : [],
+    })
+
+    <!-- IF state selectionné avec update intégrer et delete-->
+
+    @!models.states.updateOneState({
+    etat: etat ?? null,
+    states: states,
+    })
+</section>
+
+@!separators.separator()
+
+@end

@@ -1,25 +1,52 @@
-/*
-|--------------------------------------------------------------------------
-| Routes
-|--------------------------------------------------------------------------
-|
-| This file is dedicated for defining HTTP routes. A single file is enough
-| for majority of projects, however you can define routes in different
-| files and just make sure to import them inside this file. For example
-|
-| Define routes in following two files
-| ├── start/routes/cart.ts
-| ├── start/routes/customer.ts
-|
-| and then import them inside `start/routes.ts` as follows
-|
-| import './routes/cart'
-| import './routes/customer''
-|
-*/
-
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async ({ view }) => {
-  return view.render('welcome')
+// route principale rediriger sur la partie commerce
+Route.get('/', 'PublicsController.redirectHome')
+
+// groupe page public
+Route.group(() => {
+  // home
+  Route.get('/', 'PublicsController.displayHome')
+
+  // page de creation user
+  Route.get('/register', 'AuthController.showRegister').middleware(
+    'silentAuth'
+  )
+
+  // page de connexion
+  Route.get('/login', 'AuthController.showLogin').middleware('silentAuth')
+
+  // envoie formulaire create user
+  Route.post('/register/create', 'AuthController.register')
+
+  // envoie formulaire connexion
+  Route.post('/login/connexion', 'AuthController.login')
+}).prefix('/public')
+
+// groupe page app
+Route.group(() => {
+  // home
+  Route.get('/', 'AppsController.showDashboard')
+
+  // role
+  Route.get('/roleselectedfordashboard/:id', 'RolesController.getOneProfilForDashboard')
+  Route.post('/role/create', 'RolesController.create')
+  Route.put('/role/update/:id', 'RolesController.update')
+  Route.delete('/role/delete/:id', 'RolesController.delete')
+
+  // state
+  Route.get('/stateselectedfordashboard/:id', 'StatesController.getOneProfilForDashboard')
+  Route.post('state/create', 'StatesController.create')
+  Route.put('state/update/:id', 'StatesController.update')
+  Route.delete('state/delete/:id', 'StatesController.delete')
+
+  // collaborateurs
+  Route.get('/collaborateur', ({ view }) => {
+    return view.render('app/collaborateur')
+  })
+
+  // deconnexion user
+  Route.delete('/logout', 'AuthController.logout')
 })
+  .prefix('/app')
+  .middleware('auth')
