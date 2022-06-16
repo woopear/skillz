@@ -2,7 +2,7 @@ import BaseSeeder from '@ioc:Adonis/Lucid/Seeder'
 import Adresse from 'App/Models/Adresse'
 
 export default class extends BaseSeeder {
-  public async run () {
+  public async run() {
     const uniqueKey = 'address'
 
     await Adresse.updateOrCreateMany(uniqueKey, [
@@ -15,9 +15,9 @@ export default class extends BaseSeeder {
 
       // david
       {
-        street: 'rue de la paix',
-        codePost: '75000',
-        city: 'Paris',
+        street: 'rue des près',
+        codePost: '70400',
+        city: 'Héricourt',
       },
     ])
   }

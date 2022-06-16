@@ -6,7 +6,7 @@ import State from 'App/Models/State'
 import User from 'App/Models/User'
 
 export default class extends BaseSeeder {
-  public async run () {
+  public async run() {
     const role = await Role.findBy('libelle', 'root')
     const state = await State.findBy('libelle', 'Validé')
     const companie = await Companie.findBy('denomination', 'woopear')
@@ -28,10 +28,10 @@ export default class extends BaseSeeder {
       // david
       {
         firstname: 'David',
-        lastname: '',
-        email: '',
-        password: '',
-        phone: '',
+        lastname: 'Caignaert',
+        email: 'davidcaignaert@gmail.com',
+        password: '9932',
+        phone: '0768211113',
       },
     ])
 
@@ -40,25 +40,25 @@ export default class extends BaseSeeder {
     const david = users.find(e => e.firstname === 'David')
 
     // creation relation role
-    if(john && david) {
+    if (john && david) {
       await role?.related('user').create(john)
       await role?.related('user').create(david)
     }
 
     // creation relation state
-    if(john && david) {
+    if (john && david) {
       await state?.related('user').create(john)
       await state?.related('user').create(david)
     }
 
     // creation relation adresse
-    if(john && david) {
+    if (john && david) {
       await adresseJohn?.related('user').create(john)
       await adresseDavid?.related('user').create(david)
     }
 
     // creation relation companie
-    if(john && david) {
+    if (john && david) {
       await companie?.related('user').create(john)
       await companie?.related('user').create(david)
     }
